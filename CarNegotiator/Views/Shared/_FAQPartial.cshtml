@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CarNegotiator.Models.Faq>
+<div class="mb-0" id="accordion" role="tablist" aria-multiselectable="true">
+    @foreach (var item in Model)
+    {
+
+        <!-- Card Dark -->
+        <div class="card">
+            <!-- Card content -->
+            <div class="card-body  m-0 p-2 elegant-color rounded-bottom ">
+                <h5 class="card-title red-text"> @Html.DisplayFor(modelItem => item.question)</h5>
+                <hr class="hr-light">
+                <!-- Text -->
+                <h6 class="card-text white-text mb-4"> @Html.DisplayFor(modelItem => item.answer)</h6>
+                <!-- Link -->
+            </div>
+
+        </div>
+        <!-- Card Dark -->
+        <br />
+    }
+</div>                                
+
+
+
+@*<div class="mb-0" id="accordion" role="tablist" aria-multiselectable="true">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-header m-0 p-2" style="height: 40px;">
+                <h6 class="mb-0">
+                    @Html.DisplayFor(modelItem => item.question)
+                </h6>
+            </div>
+            <div class="card-body   m-0 p-2" style="height: 40px;">
+                @Html.DisplayFor(modelItem => item.answer)
+            </div>
+        </div>
+        <br />
+    }
+</div>*@
+

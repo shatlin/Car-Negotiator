@@ -1,0 +1,6 @@
+      // GET: Clients/Create
+        public ActionResult Create()
+        {
+            ViewBag.titleId = new SelectList(db.Lookups.Where(s => s.lookupName == "title"), "id", "lookupValue");
+            return View();
+        }

@@ -1,0 +1,139 @@
+﻿@model CarNegotiator.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contactNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bidemailnotify)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bidemailnotify)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bidsmsnotify)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bidsmsnotify)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.closenextdayemailnotify)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.closenextdayemailnotify)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.closenextdaysmsnotify)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.closenextdaysmsnotify)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.closedemailnotify)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.closedemailnotify)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.closedsmsnotify)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.closedsmsnotify)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BestTimeToContact.Value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BestTimeToContact.Value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Town.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Town.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Province.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Province.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title.Value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title.Value)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

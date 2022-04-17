@@ -1,0 +1,639 @@
+﻿@model IEnumerable<CarNegotiator.Models.CarVariant>
+@{
+
+    Layout = null;
+}
+<table class="table table-bordered  table-responsive-md table-striped text-center">
+    <tr>
+        <th class="text-center">Id</th>
+        <th class="text-center">Name</th>
+
+    </tr>
+    @foreach (var @item in Model)
+    {
+
+        <tr>
+            <td colspan="2">
+                General
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Body type     </td>
+            <td class="pt-3-half" contenteditable="false">@@item.BodyType</td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Body type</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.BodyType
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Cylinder layout quantity</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Cylinder_layout_quantity
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Drive</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Drive
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Engine capacity</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Engine_capacity
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Engine detail</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Engine_detail
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Engine size litre</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Engine_size_litre
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Fuel tank capacity incl reserve</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Fuel_tank_capacity_incl_reserve
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Fuel type</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Fuel_type
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Gears</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Gears
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Gearshift paddles</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Gearshift_paddles
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Low range</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Low_range
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">No of doors</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.No_of_doors
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Sunroof</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Sunroof
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Gearbox</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Gearbox
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Transmission name</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Transmission_name
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Turbocharger</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Turbocharger
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">Convenience</td>
+        </tr>
+
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Air conditioning</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Air_conditioning
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Aux in (auxiliary input jack)</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Aux_in_auxiliary_input_jack
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Bluetooth connectivity</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Bluetooth_connectivity
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Camera for park distance control</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Camera_for_park_distance_control
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Climate control / automatic air conditioning</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Climate_control__automatic_air_conditioning
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Cruise control</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Cruise_control
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Electric steering column adjustment</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Electric_steering_column_adjustment
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Electric-adjust mirrors</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Electric_adjust_mirrors
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Engine auto-Stop/Start / idle stop / eco-stop</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Engine_auto_StopStart__idle_stop__eco_stop
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Maintenance plan</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Maintenance_plan
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Maintenance plan distance</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Maintenance_plan_distance
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Maintenance plan time years</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Maintenance_plan_time_years
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Multi-function steering wheel controls</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Multi_function_steering_wheel_controls
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Navigation</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Navigation
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Park distance control (PDC) - front</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Park_distance_control_PDC___front
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Park distance control (PDC) - rear</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Park_distance_control_PDC___rear
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Power steering</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Power_steering
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Service interval distance</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Service_interval_distance
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">USB port</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.USB_port
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Voice control</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Voice_control
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Warranty distance</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Warranty_distance
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Warranty time years</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Warranty_time_years
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Acceleration 0100km h</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Acceleration_0100km_h
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Co2 emissions</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Co2_emissions
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Engine position location</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Engine_position_location
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Fuel range average</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Fuel_range_average
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Fuel consumption average</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Fuel_consumption_average
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Maximum top speed</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Maximum_top_speed
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Power maximum detail</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Power_maximum_detail
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Power peak revs</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Power_peak_revs
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Torque maximum</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Torque_maximum
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Torque peak revs</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Torque_peak_revs
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">Interior</td>
+        </tr>
+
+
+        <tr>
+            <td class="pt-3-half" contenteditable="false">CD player</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.CD_player
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Electric seat adjustment driver</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Electric_seat_adjustment_driver
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Electric seat adjustment front passenger</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Electric_seat_adjustment_front_passenger
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Electric windows</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Electric_windows
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Folding rear seat</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Folding_rear_seat
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Heated seats - front</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Heated_seats___front
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">ISOFIX child seat mountings</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.ISOFIX_child_seat_mountings
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Leather upholstery</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Leather_upholstery
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">On-board computer / multi-information display</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.On_board_computer__multi_information_display
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Seats</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Seats
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Split rear seat</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Split_rear_seat
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Ventilated seats - front</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Ventilated_seats___front
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"> Safety & security</td>
+        </tr>
+
+
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Airbag quantity</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Airbag_quantity
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Anti-lock braking system (ABS)</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Anti_lock_braking_system_ABS
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Autodim exterior mirrors</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Autodim_exterior_mirrors
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Autodim interior mirror</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Autodim_interior_mirror
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Brake assist (BAS/EBA)</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Brake_assist_BASEBA
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Curtain airbags</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Curtain_airbags
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Daytime driving/running lights</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Daytime_drivingrunning_lights
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Diff lock - centre</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Diff_lock___centre
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Diff lock - front</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Diff_lock___front
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Diff lock - rear</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Diff_lock___rear
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Driver airbag</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Driver_airbag
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Electronic brake distribution (EBD)</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Electronic_brake_distribution_EBD
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Emergency brake hazard lights</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Emergency_brake_hazard_lights
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Front fog lamps/lights</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Front_fog_lampslights
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Front passenger airbag</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Front_passenger_airbag
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">High-level (3rd) brake light</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.High_level_3rd_brake_light
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Hill-start assist / hill holder</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Hill_start_assist__hill_holder
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Lane change / blind spot warning/assist/monitor</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Lane_change__blind_spot_warningassistmonitor
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Light sensor / automatic light control (auto on-off lights)</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Light_sensor__automatic_light_control_auto_on_off_lights
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Rain sensor (auto wipers)</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Rain_sensor_auto_wipers
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Remote central locking</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Remote_central_locking
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Stability control</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Stability_control
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Traction control</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Traction_control
+            </td>
+        </tr>
+        <tr>
+            </td>
+            <td class="pt-3-half" contenteditable="false">Tyre pressure sensor/monitor / deflation detection system</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Tyre_pressure_sensormonitor__deflation_detection_system
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Xenon headlights</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Xenon_headlights
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                Dimensions & weight
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Alloy wheels/rims</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Alloy_wheelsrims
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Approach angle</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Approach_angle
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Axle configuration</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Axle_configuration
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Breakover ramp angle</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Breakover_ramp_angle
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Departure angle</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Departure_angle
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Front tyres</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Front_tyres
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Gross weight GVM</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Gross_weight_GVM
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Ground clearance minimummaximum</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Ground_clearance_minimummaximum
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Height</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Height
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Length</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Length
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Rear tyres</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Rear_tyres
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Wheelbase</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Wheelbase
+            </td>
+        </tr>
+        <tr>
+            <td class="pt-3-half" contenteditable="false">Width excl mirrors incl mirrors</td>
+            <td class="pt-3-half" contenteditable="false">
+                @item.Width_excl_mirrors_incl_mirrors
+            </td>
+        </tr>
+
+
+    }
+
+</table>

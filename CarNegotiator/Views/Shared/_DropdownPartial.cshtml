@@ -1,0 +1,12 @@
+﻿
+@*<div class="form-group row input-group">
+    <div class="col-md-6 col-lg-6">
+        @{string fieldname = Html.NameFor(m => m).ToString();}
+        @*@Html.LabelFor(model => model, htmlAttributes: new { @class = "d-block" })*@
+        @Html.DropDownList(@Model, null, htmlAttributes: new { @class = "form-control", id = fieldname, name = "hi" })
+    </div>
+    <div class="col-md-6 col-lg-6">
+        @*@Html.ValidationMessageFor(model => model, "", new { @class = "text-danger" })*@
+    </div>
+</div>*@
+

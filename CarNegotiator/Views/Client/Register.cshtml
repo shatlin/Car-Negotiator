@@ -1,0 +1,188 @@
+﻿@model CarNegotiator.Models.Client
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Id = "Some content";
+}
+
+@Html.Partial("_HeaderPartial", "Please Fill the details to register yourself")
+
+@Html.Partial("_FormTop")
+
+@using (Html.BeginForm("Register", "Client", FormMethod.Post, new { style = " max-width: 1600px", @class = "form-signin was-validated" }))
+{
+
+    @Html.AntiForgeryToken()
+
+    @Html.Partial("_FormSectionPartial", "Personal Details")
+
+    @Html.EditorFor(model => model.emailAddress)
+    @Html.EditorFor(model => model.password)
+
+    <div class="form-group row input-group">
+        <div class="col-md-6 col-lg-6">
+            @Html.LabelFor(model => model, htmlAttributes: new { @class = "d-block" })
+            @Html.DropDownList("titleId", null, htmlAttributes: new { @class = "form-control", id = "titleId", name = "titleId" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.ValidationMessageFor(model => model, "", new { @class = "text-danger" })
+        </div>
+    </div>
+   
+    @Html.EditorFor(model => model.firstName)
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.lastName, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.EditorFor(model => model.lastName, new { htmlAttributes = new {
+           @class = "form-control is-valid",
+           placeholder = "Please enter last name"} })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger align-self-center" })
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.contactNumber, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.EditorFor(model => model.contactNumber, new { htmlAttributes = new {
+           @class = "form-control is-valid",
+           required = "required", placeholder = "Please enter contact number"} })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.contactNumber, "", new { @class = "text-danger align-self-center" })
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.bestTimeToContactId, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("bestTimeToContactId", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.bestTimeToContactId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.provinceId, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("provinceId", null, "--Please select Province--", htmlAttributes: new { @class = "form-control is-valid", id = "Provinces", required = "required" })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.provinceId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.townId, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("townId", null, "--Please select a Province First--", htmlAttributes: new { @class = "form-control is-valid", id = "Towns", required = "required", @disabled = "disabled" })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.townId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @Html.Partial("_FormSectionPartial", "Notification Settings")
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.bidemailnotify)
+            @Html.LabelFor(model => model.bidemailnotify)
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.bidsmsnotify)
+            @Html.LabelFor(model => model.bidsmsnotify)
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.closenextdayemailnotify)
+            @Html.LabelFor(model => model.closenextdayemailnotify)
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.closenextdaysmsnotify)
+            @Html.LabelFor(model => model.closenextdaysmsnotify)
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.closedemailnotify)
+            @Html.LabelFor(model => model.closedemailnotify)
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.closedsmsnotify)
+            @Html.LabelFor(model => model.closedsmsnotify)
+        </div>
+    </div>
+
+    @Html.Partial("_FormButtonPartial", "Register")
+}
+
+@Html.Partial("_FormBottom")
+
+<script type="text/javascript">
+
+
+    $('#Provinces').change(function () {
+        var selectedProvince = $("#Provinces").val();
+        var townSelect = $('#Towns');
+        townSelect.empty();
+        if ($("#Provinces").val() == "") {
+            townSelect.append($('<option/>', {
+                value: null,
+                text: "--Please select a Province First--"
+            }));
+            $("#Towns").prop("disabled", true);
+            return;
+        }
+        else {
+        $("#Towns").prop("disabled", false);
+        }
+        if (selectedProvince != null && selectedProvince != '') {
+            $.getJSON('@Url.Action("GetTowns")', { id: selectedProvince }, function (towns) {
+                        if (towns != null && !jQuery.isEmptyObject(towns))
+                        {
+                            $.each(towns, function (index, town) {
+                                townSelect.append($('<option/>', {
+                                    value: town.Value,
+                                    text: town.Text
+                                }));
+                            });
+                        };
+                    });
+                }
+    });
+
+
+</script>
+
+
+
+

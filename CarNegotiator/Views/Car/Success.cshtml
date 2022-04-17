@@ -1,0 +1,42 @@
+﻿@model CarNegotiator.Models.CarRequest
+
+@{
+    ViewBag.Title = "Request successful";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_HeaderPartial", "Applied Successfully")
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+            <div class="card my-5">
+                <div class="card-body">
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                Request Reference Number: 
+                               @Model.id
+                            </dt>
+
+                            <dd>
+                               
+                            </dd>
+
+
+                            <dt>
+                                Delivery Request Date:
+                                @Model.deliveryRequestDate.ToShortDateString()
+                            </dt>
+
+                            <dd>
+                               
+                            </dd>
+
+                       
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,338 @@
+﻿/*!
+ * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+ */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+.carousel-item {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.headerrow {
+    background-color: #323232;
+    color: white;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.bg-black {
+    background-color: black !important;
+}
+
+::selection {
+    background: #db2d2e;
+    color: #fff;
+    text-shadow: none;
+}
+
+.img-smooth {
+    -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+    -moz-animation: fadein 2.5s; /* Firefox */
+    -ms-animation: fadein 2.5s; /* Internet Explorer */
+    -o-animation: fadein 2.5s; /* Opera */
+    animation: fadein 2.5s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+​
+/* Opera */
+@-o-keyframes fadein {
+    from
+
+{
+    opacity: 0;
+}
+
+to {
+    opacity: 1;
+}
+
+}
+
+​
+
+
+#myFooter {
+    background-color: #3c3d41;
+    color: white;
+    padding-top: 500px;
+    padding-top: 0px;
+}
+
+#myFooter .footer-copyright {
+    background-color: #333333;
+    padding-top: 1px;
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+#myFooter .row {
+    margin-bottom: 5px;
+}
+
+#myFooter .navbar-brand {
+    margin-top: 5px;
+    height: 5px;
+}
+
+#myFooter .footer-copyright p {
+    margin: 10px;
+    color: #ccc;
+}
+
+#myFooter ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+}
+
+#myFooter h5 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#myFooter h2 a {
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+#myFooter a {
+    color: #d2d1d1;
+    text-decoration: none;
+}
+
+    #myFooter a:hover,
+    #myFooter a:focus {
+        text-decoration: none;
+        color: white;
+    }
+
+#myFooter .social-networks {
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+    #myFooter .social-networks a {
+        font-size: 32px;
+        color: #f9f9f9;
+        padding: 3px;
+        transition: 0.2s;
+    }
+
+        #myFooter .social-networks a:hover {
+            text-decoration: none;
+        }
+
+#myFooter .facebook:hover {
+    color: #0077e2;
+}
+
+#myFooter .google:hover {
+    color: #ef1a1a;
+}
+
+#myFooter .twitter:hover {
+    color: #00aced;
+}
+
+#myFooter .btn {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+    line-height: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    #myFooter {
+        text-align: center;
+    }
+}
+
+
+
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+    .form-signin .checkbox {
+        font-weight: 400;
+    }
+
+    .form-signin .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+    .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+    }
+
+
+
+
+.card-signin {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0.5rem 0.5rem 0.5rem 0.5em rgba(0, 0, 0, 0.1);*/
+}
+
+    .card-signin .card-title {
+        margin-bottom: 2rem;
+        font-weight: 300;
+        font-size: 1.5rem;
+    }
+
+    .card-signin .card-body {
+        /*padding: 2rem;*/
+    }
+
+
+.form-signin .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    transition: all 0.2s;
+}
+
+.form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+
+
+
+.btn-google {
+    color: white;
+    background-color: #ea4335;
+}
+
+.btn-facebook {
+    color: white;
+    background-color: #3b5998;
+}
+
+
+.btp-be-bold {
+    font-weight: bold;
+    display: block;
+  
+}
+
+.btp-all-caps {
+    text-transform: uppercase;
+    display: block;
+  
+}
+
+.modal-v-lg {
+    max-width: 1800px;
+}
+
+
+#wrap {
+    min-height: 100%;
+}
+
+#main {
+    overflow: auto;
+    padding-bottom: 150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+    position: relative;
+    margin-top: -150px; /* negative value of footer height */
+    height: 150px;
+    clear: both;
+    padding-top: 20px;
+} 

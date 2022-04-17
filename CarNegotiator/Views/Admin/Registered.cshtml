@@ -1,0 +1,57 @@
+﻿@model CarNegotiator.Models.User
+@{
+    ViewBag.Title = "Registration successful";
+}
+
+@Html.Partial("_HeaderPartial", "Registered Successfully")
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+            <div class="card my-5">
+                <div class="card-body">
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                First Name: 
+                                @Html.DisplayFor(model => model.firstName)
+                            </dt>
+
+                            <dd>
+                               
+                            </dd>
+
+                            <dt>
+                                Last Name:
+                                @Html.DisplayFor(model => model.lastName)
+                            </dt>
+
+                            <dd>
+                              
+                            </dd>
+
+                            <dt>
+                                Contact Number:
+                                @Html.DisplayFor(model => model.contactNumber)
+                            </dt>
+
+                            <dd>
+                               
+                            </dd>
+
+                            <dt>
+                                Email and Login Id:
+                                @Html.DisplayFor(model => model.emailAddress)
+                            </dt>
+
+                            <dd>
+                               
+                            </dd>
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

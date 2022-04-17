@@ -1,0 +1,202 @@
+﻿@model IEnumerable<CarNegotiator.Models.Dealer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DealerLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelephoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rememberMe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isEmailConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createdDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastLoginDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.businessName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.registrationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VATNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paymentGatewayId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.newlistemailnotify)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.newlistsmsnotify)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lowerbidemailnotify)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lowerbidsmsnotify)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.closenextdayemailnotify)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.closenextdaysmsnotify)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.closedemailnotify)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.closedsmsnotify)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Town.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Province.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title.Value)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelephoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rememberMe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isEmailConfirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createdDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastLoginDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.businessName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.registrationNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VATNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paymentGatewayId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.newlistemailnotify)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.newlistsmsnotify)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lowerbidemailnotify)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lowerbidsmsnotify)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.closenextdayemailnotify)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.closenextdaysmsnotify)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.closedemailnotify)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.closedsmsnotify)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Town.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Province.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title.Value)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

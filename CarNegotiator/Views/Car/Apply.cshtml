@@ -1,0 +1,544 @@
+﻿@model CarNegotiator.Models.CarRequest
+
+@Html.Partial("_HeaderPartial", "Please Fill the details to request a new Car")
+
+
+@Html.Partial("_FormTop")
+
+<script type="text/javascript">
+        $(function () {
+            $('.bids').click(function () {
+
+                var id = $("#requestVariant").val();
+                var route = '@Url.Action("CarDetails", "Car")?id=' + id;
+                $('#partial').load(route);
+            });
+
+    });
+
+      $(function () {
+          $('.tradeinvar').click(function () {
+
+              var id = $("#tradeinVariant").val();
+                var route = '@Url.Action("CarDetails", "Car")?id=' + id;
+                $('#partial').load(route);
+            });
+
+    });
+
+</script>
+
+
+
+
+@using (Html.BeginForm("Apply", "Car", FormMethod.Post, new { style = " max-width: 1600px", @class = "form-signin was-validated" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Partial("_FormSectionPartial", "Car Details")
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.Label("Please select Make", htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+
+            @Html.DropDownList("requestMakeId", null, "--Please select Make--", htmlAttributes: new { @class = "form-control is-valid", id = "requestMake", required = "required" })
+
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.requestMakeId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.Label("Please select Model", htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("requestModelId", null, "--Please select Make First--", htmlAttributes: new { @class = "form-control is-valid", id = "requestModel", required = "required", @disabled = "disabled" })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.requestModelId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.Label("Please select Variant", htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+
+            @Html.DropDownList("requestVariantId", null, "--Please select Model First--", htmlAttributes: new { @class = "form-control is-valid", id = "requestVariant", required = "required", @disabled = "disabled" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+
+            <input class="bids btn btn-squared btn-danger  my-2 p-2" type="button" value="View Car Details"
+                   data-assigned-id=1 data-toggle="modal" data-target="#exampleModalLong" />
+
+        </div>
+    </div>
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.deliveryRequestDate, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.EditorFor(model => model.deliveryRequestDate, new { htmlAttributes = new { @class = "form-control is-valid", required = "required", @id = "datepicker-example-1" } })
+
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.deliveryRequestDate, "", new { })
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.colorChoice1Id, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("colorChoice1Id", null, htmlAttributes: new { @class = "form-control" })
+
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.colorChoice1Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.colorChoice2Id, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("colorChoice2Id", null, htmlAttributes: new { @class = "form-control" })
+
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.colorChoice2Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.colorChoice3Id, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("colorChoice3Id", null, htmlAttributes: new { @class = "form-control" })
+
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.colorChoice3Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.canOfferDifferentColor)
+            @Html.LabelFor(model => model.canOfferDifferentColor)
+        </div>
+    </div>
+
+
+    @Html.Partial("_FormSectionPartial", "Payment Details")
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.paymentMethodId, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("paymentMethodId", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.paymentMethodId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.financeApproved)
+            @Html.LabelFor(model => model.financeApproved)
+        </div>
+    </div>
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.financeHouseId, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("financeHouseId", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.financeHouseId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.depositAmount, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.EditorFor(model => model.depositAmount, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.depositAmount, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @Html.Partial("_FormSectionPartial", "Trade-in Details")
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.tradeinVehicleAvailable)
+            @Html.LabelFor(model => model.tradeinVehicleAvailable)
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.tradeinMakeId, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+
+            @Html.DropDownList("tradeinMakeId", null, "--Please select Make--", htmlAttributes: new { @class = "form-control is-valid", id = "tradeinMake" })
+
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.tradeinMakeId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.tradeinModelId, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("tradeinModelId", null, "--Please select Make First--", htmlAttributes: new { @class = "form-control is-valid", id = "tradeinModel", @disabled = "disabled" })
+
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.tradeinModelId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.tradeinVariantId, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("tradeinVariantId", null, "--Please select Model First--", htmlAttributes: new { @class = "form-control is-valid", id = "tradeinVariant", @disabled = "disabled" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+
+            <input class="tradeinvar btn btn-squared btn-danger  my-2 p-2" type="button" value="View Trade in Car Details"
+                   data-assigned-id=1 data-toggle="modal" data-target="#exampleModalLong" />
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.tradeinYearId, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("tradeinYearId", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.tradeinYearId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.tradeinFuelId, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.DropDownList("tradeinFuelId", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.tradeinFuelId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.tradeinDescription, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.EditorFor(model => model.tradeinDescription, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.tradeinDescription, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.tradeinKMs, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.EditorFor(model => model.tradeinKMs, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.tradeinKMs, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.LabelFor(model => model.clientComments, htmlAttributes: new { @class = "d-block" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.EditorFor(model => model.clientComments, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+            @Html.ValidationMessageFor(model => model.clientComments, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+
+        <div class="row input-group">
+            <div class="col-md-6 col-lg-4">
+
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit" value="Create">Request for Car</button>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+
+
+            </div>
+
+
+        </div>
+    </div>
+}
+
+@Html.Partial("_FormBottom")
+
+
+<!-- Modal: modalCart -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Car Details</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <div id="partial"></div>
+            </div>
+            <!--Footer-->
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#requestMake').change(function () {
+        var selectedrequestMake = $("#requestMake").val();
+        var ModelSelect = $('#requestModel');
+        ModelSelect.empty();
+        if ($("#requestMake").val() == "") {
+            ModelSelect.append($('<option/>', {
+                value: null,
+                text: "--Please select a Make First--"
+            }));
+            $("#requestModel").prop("disabled", true);
+            return;
+        }
+        else {
+            $("#requestModel").prop("disabled", false);
+        }
+        if (selectedrequestMake != null && selectedrequestMake != '') {
+            $.getJSON('@Url.Action("GetModels")', { id: selectedrequestMake }, function (Models) {
+                        if (Models != null && !jQuery.isEmptyObject(Models))
+                        {
+                            ModelSelect.append($('<option/>', {
+                                value: null,
+                                text: "--Please select Model--"
+                            }));
+                            $.each(Models, function (index, Model) {
+                                ModelSelect.append($('<option/>', {
+                                    value: Model.Value,
+                                    text: Model.Text
+                                }));
+                            });
+                        };
+                    });
+                }
+    });
+
+
+     $('#requestModel').change(function () {
+        var selectedrequestModel = $("#requestModel").val();
+        var variantSelect = $('#requestVariant');
+        variantSelect.empty();
+        if ($("#requestModel").val() == "") {
+            variantSelect.append($('<option/>', {
+                value: null,
+                text: "--Please select a Model First--"
+            }));
+            $("#requestVariant").prop("disabled", true);
+            return;
+        }
+        else {
+            $("#requestVariant").prop("disabled", false);
+        }
+        if (selectedrequestModel != null && selectedrequestModel != '') {
+            $.getJSON('@Url.Action("GetVariants")', { id: selectedrequestModel }, function (Models) {
+                        if (Models != null && !jQuery.isEmptyObject(Models))
+                        {
+                            variantSelect.append($('<option/>', {
+                                value: null,
+                                text: "--Please select a Variant--"
+                            }));
+
+                            $.each(Models, function (index, Model) {
+                                variantSelect.append($('<option/>', {
+                                    value: Model.Value,
+                                    text: Model.Text
+                                }));
+                            });
+                        };
+                    });
+                }
+    });
+
+
+
+
+
+     $('#tradeinMake').change(function () {
+        var selectedtradeinMake = $("#tradeinMake").val();
+        var ModelSelect = $('#tradeinModel');
+        ModelSelect.empty();
+        if ($("#tradeinMake").val() == "") {
+            ModelSelect.append($('<option/>', {
+                value: null,
+                text: "--Please select a Make First--"
+            }));
+            $("#tradeinModel").prop("disabled", true);
+            return;
+        }
+        else {
+            $("#tradeinModel").prop("disabled", false);
+        }
+        if (selectedtradeinMake != null && selectedtradeinMake != '') {
+            $.getJSON('@Url.Action("GetModels")', { id: selectedtradeinMake }, function (Models) {
+                        if (Models != null && !jQuery.isEmptyObject(Models))
+                        {
+                            ModelSelect.append($('<option/>', {
+                                value: null,
+                                text: "--Please select a Model--"
+                            }));
+
+                            $.each(Models, function (index, Model) {
+                                ModelSelect.append($('<option/>', {
+                                    value: Model.Value,
+                                    text: Model.Text
+                                }));
+                            });
+                        };
+                    });
+                }
+    });
+
+
+     $('#tradeinModel').change(function () {
+        var selectedtradeinModel = $("#tradeinModel").val();
+        var variantSelect = $('#tradeinVariant');
+        variantSelect.empty();
+        if ($("#tradeinModel").val() == "") {
+            variantSelect.append($('<option/>', {
+                value: null,
+                text: "--Please select a Model First--"
+            }));
+            $("#tradeinVariant").prop("disabled", true);
+            return;
+        }
+        else {
+            $("#tradeinVariant").prop("disabled", false);
+        }
+        if (selectedtradeinModel != null && selectedtradeinModel != '') {
+            $.getJSON('@Url.Action("GetVariants")', { id: selectedtradeinModel }, function (Models) {
+                        if (Models != null && !jQuery.isEmptyObject(Models))
+                        {
+                            variantSelect.append($('<option/>', {
+                                value: null,
+                                text: "--Please select a Variant--"
+                            }));
+
+                            $.each(Models, function (index, Model) {
+                                variantSelect.append($('<option/>', {
+                                    value: Model.Value,
+                                    text: Model.Text
+                                }));
+                            });
+                        };
+                    });
+                }
+    });
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

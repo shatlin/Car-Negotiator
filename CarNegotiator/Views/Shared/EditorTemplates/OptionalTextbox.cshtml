@@ -1,0 +1,16 @@
+﻿<div class="form-group row input-group">
+    <div class="col-md-12 col-lg-12">
+        @Html.LabelFor(model => model, htmlAttributes: new { @class = "d-block" })
+    </div>
+    <div class="col-md-6 col-lg-6">
+
+        @Html.TextBoxFor(model => model, new {
+      placeholder = ModelMetadata.FromLambdaExpression(m => m, ViewData).Watermark,
+      @class = "form-control is-valid"
+  })
+    </div>
+    <div class="col-md-6 col-lg-6 justify-content-center align-self-center">
+        @Html.ValidationMessageFor(model => model, "", new { @class = "text-danger align-self-center" })
+    </div>
+</div>
+

@@ -1,0 +1,2608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AutoNegotiatorDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BestTimeToContacts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bids">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dealerId" Type="int" />
+          <Property Name="requestId" Type="int" Nullable="false" />
+          <Property Name="bidAmount" Type="int" />
+          <Property Name="isWinningBid" Type="bit" />
+          <Property Name="bidCreatedDate" Type="datetime" />
+          <Property Name="winningDate" Type="datetime" />
+          <Property Name="isDealerInterested" Type="bit" />
+          <Property Name="dealerComments" Type="nvarchar" MaxLength="3000" />
+          <Property Name="adminComments" Type="nvarchar" MaxLength="3000" />
+          <Property Name="adminId" Type="nvarchar" MaxLength="3000" />
+          <Property Name="bidUpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CarMakes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="makeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarModels">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="carMakeId" Type="int" Nullable="false" />
+          <Property Name="carModelName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarRequests">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="carVariantId" Type="int" Nullable="false" />
+          <Property Name="clientId" Type="int" Nullable="false" />
+          <Property Name="requestedDate" Type="datetime" Nullable="false" />
+          <Property Name="deliveryRequestDate" Type="datetime" Nullable="false" />
+          <Property Name="colorChoice1Id" Type="int" />
+          <Property Name="colorChoice2Id" Type="int" />
+          <Property Name="colorChoice3Id" Type="int" />
+          <Property Name="canOfferDifferentColor" Type="bit" Nullable="false" />
+          <Property Name="paymentMethodId" Type="int" />
+          <Property Name="financeApproved" Type="bit" Nullable="false" />
+          <Property Name="financeHouseId" Type="int" />
+          <Property Name="depositAmount" Type="int" />
+          <Property Name="tradeinVehicleAvailable" Type="bit" Nullable="false" />
+          <Property Name="tradeinMakeId" Type="int" />
+          <Property Name="tradeinModelId" Type="int" />
+          <Property Name="tradeinVariantId" Type="int" />
+          <Property Name="tradeinYearId" Type="int" />
+          <Property Name="tradeinFuelId" Type="int" />
+          <Property Name="tradeinDescription" Type="nvarchar" MaxLength="3000" />
+          <Property Name="tradeinValue" Type="int" />
+          <Property Name="tradeinKMs" Type="int" />
+          <Property Name="clientComments" Type="nvarchar" MaxLength="3000" />
+          <Property Name="isRequestActive" Type="bit" Nullable="false" />
+          <Property Name="winningBidId" Type="int" />
+          <Property Name="clientAcceptedWinningBid" Type="bit" />
+          <Property Name="actualSellingPrice" Type="int" />
+          <Property Name="commissionCalculated" Type="int" />
+          <Property Name="commisionReceived" Type="int" />
+          <Property Name="AdminComments" Type="nvarchar" MaxLength="3000" />
+          <Property Name="isRequestClosed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarVariantFuels">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarVariants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="carModelId" Type="int" Nullable="false" />
+          <Property Name="carVariantName" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+          <Property Name="AveragePrice" Type="int" />
+          <Property Name="BodyType" Type="varchar" MaxLength="300" />
+          <Property Name="Cylinder_layout_quantity" Type="varchar" MaxLength="300" />
+          <Property Name="Drive" Type="varchar" MaxLength="300" />
+          <Property Name="Engine_capacity" Type="varchar" MaxLength="300" />
+          <Property Name="Engine_detail" Type="varchar" MaxLength="300" />
+          <Property Name="Engine_size_litre" Type="varchar" MaxLength="300" />
+          <Property Name="Fuel_tank_capacity_incl_reserve" Type="varchar" MaxLength="300" />
+          <Property Name="Fuel_type" Type="varchar" MaxLength="300" />
+          <Property Name="Gears" Type="varchar" MaxLength="300" />
+          <Property Name="Gearshift_paddles" Type="varchar" MaxLength="300" />
+          <Property Name="Low_range" Type="varchar" MaxLength="300" />
+          <Property Name="No_of_doors" Type="varchar" MaxLength="300" />
+          <Property Name="Sunroof" Type="varchar" MaxLength="300" />
+          <Property Name="Gearbox" Type="varchar" MaxLength="300" />
+          <Property Name="Transmission_name" Type="varchar" MaxLength="300" />
+          <Property Name="Turbocharger" Type="varchar" MaxLength="300" />
+          <Property Name="Air_conditioning" Type="varchar" MaxLength="300" />
+          <Property Name="Aux_in_auxiliary_input_jack" Type="varchar" MaxLength="300" />
+          <Property Name="Bluetooth_connectivity" Type="varchar" MaxLength="300" />
+          <Property Name="Camera_for_park_distance_control" Type="varchar" MaxLength="300" />
+          <Property Name="Climate_control__automatic_air_conditioning" Type="varchar" MaxLength="300" />
+          <Property Name="Cruise_control" Type="varchar" MaxLength="300" />
+          <Property Name="Electric_steering_column_adjustment" Type="varchar" MaxLength="300" />
+          <Property Name="Electric_adjust_mirrors" Type="varchar" MaxLength="300" />
+          <Property Name="Engine_auto_StopStart__idle_stop__eco_stop" Type="varchar" MaxLength="300" />
+          <Property Name="Maintenance_plan" Type="varchar" MaxLength="300" />
+          <Property Name="Maintenance_plan_distance" Type="varchar" MaxLength="300" />
+          <Property Name="Maintenance_plan_time_years" Type="varchar" MaxLength="300" />
+          <Property Name="Multi_function_steering_wheel_controls" Type="varchar" MaxLength="300" />
+          <Property Name="Navigation" Type="varchar" MaxLength="300" />
+          <Property Name="Park_distance_control_PDC___front" Type="varchar" MaxLength="300" />
+          <Property Name="Park_distance_control_PDC___rear" Type="varchar" MaxLength="300" />
+          <Property Name="Power_steering" Type="varchar" MaxLength="300" />
+          <Property Name="Service_interval_distance" Type="varchar" MaxLength="300" />
+          <Property Name="USB_port" Type="varchar" MaxLength="300" />
+          <Property Name="Voice_control" Type="varchar" MaxLength="300" />
+          <Property Name="Warranty_distance" Type="varchar" MaxLength="300" />
+          <Property Name="Warranty_time_years" Type="varchar" MaxLength="300" />
+          <Property Name="Acceleration_0100km_h" Type="varchar" MaxLength="300" />
+          <Property Name="Co2_emissions" Type="varchar" MaxLength="300" />
+          <Property Name="Engine_position_location" Type="varchar" MaxLength="300" />
+          <Property Name="Fuel_range_average" Type="varchar" MaxLength="300" />
+          <Property Name="Fuel_consumption_average" Type="varchar" MaxLength="300" />
+          <Property Name="Maximum_top_speed" Type="varchar" MaxLength="300" />
+          <Property Name="Power_maximum_detail" Type="varchar" MaxLength="300" />
+          <Property Name="Power_peak_revs" Type="varchar" MaxLength="300" />
+          <Property Name="Torque_maximum" Type="varchar" MaxLength="300" />
+          <Property Name="Torque_peak_revs" Type="varchar" MaxLength="300" />
+          <Property Name="CD_player" Type="varchar" MaxLength="300" />
+          <Property Name="Electric_seat_adjustment_driver" Type="varchar" MaxLength="300" />
+          <Property Name="Electric_seat_adjustment_front_passenger" Type="varchar" MaxLength="300" />
+          <Property Name="Electric_windows" Type="varchar" MaxLength="300" />
+          <Property Name="Folding_rear_seat" Type="varchar" MaxLength="300" />
+          <Property Name="Heated_seats___front" Type="varchar" MaxLength="300" />
+          <Property Name="ISOFIX_child_seat_mountings" Type="varchar" MaxLength="300" />
+          <Property Name="Leather_upholstery" Type="varchar" MaxLength="300" />
+          <Property Name="On_board_computer__multi_information_display" Type="varchar" MaxLength="300" />
+          <Property Name="Seats" Type="varchar" MaxLength="300" />
+          <Property Name="Split_rear_seat" Type="varchar" MaxLength="300" />
+          <Property Name="Ventilated_seats___front" Type="varchar" MaxLength="300" />
+          <Property Name="Airbag_quantity" Type="varchar" MaxLength="300" />
+          <Property Name="Anti_lock_braking_system_ABS" Type="varchar" MaxLength="300" />
+          <Property Name="Autodim_exterior_mirrors" Type="varchar" MaxLength="300" />
+          <Property Name="Autodim_interior_mirror" Type="varchar" MaxLength="300" />
+          <Property Name="Brake_assist_BASEBA" Type="varchar" MaxLength="300" />
+          <Property Name="Curtain_airbags" Type="varchar" MaxLength="300" />
+          <Property Name="Daytime_drivingrunning_lights" Type="varchar" MaxLength="300" />
+          <Property Name="Diff_lock___centre" Type="varchar" MaxLength="300" />
+          <Property Name="Diff_lock___front" Type="varchar" MaxLength="300" />
+          <Property Name="Diff_lock___rear" Type="varchar" MaxLength="300" />
+          <Property Name="Driver_airbag" Type="varchar" MaxLength="300" />
+          <Property Name="Electronic_brake_distribution_EBD" Type="varchar" MaxLength="300" />
+          <Property Name="Emergency_brake_hazard_lights" Type="varchar" MaxLength="300" />
+          <Property Name="Front_fog_lampslights" Type="varchar" MaxLength="300" />
+          <Property Name="Front_passenger_airbag" Type="varchar" MaxLength="300" />
+          <Property Name="High_level_3rd_brake_light" Type="varchar" MaxLength="300" />
+          <Property Name="Hill_start_assist__hill_holder" Type="varchar" MaxLength="300" />
+          <Property Name="Lane_change__blind_spot_warningassistmonitor" Type="varchar" MaxLength="300" />
+          <Property Name="Light_sensor__automatic_light_control_auto_on_off_lights" Type="varchar" MaxLength="300" />
+          <Property Name="Rain_sensor_auto_wipers" Type="varchar" MaxLength="300" />
+          <Property Name="Remote_central_locking" Type="varchar" MaxLength="300" />
+          <Property Name="Stability_control" Type="varchar" MaxLength="300" />
+          <Property Name="Traction_control" Type="varchar" MaxLength="300" />
+          <Property Name="Tyre_pressure_sensormonitor__deflation_detection_system" Type="varchar" MaxLength="300" />
+          <Property Name="Xenon_headlights" Type="varchar" MaxLength="300" />
+          <Property Name="Alloy_wheelsrims" Type="varchar" MaxLength="300" />
+          <Property Name="Approach_angle" Type="varchar" MaxLength="300" />
+          <Property Name="Axle_configuration" Type="varchar" MaxLength="300" />
+          <Property Name="Breakover_ramp_angle" Type="varchar" MaxLength="300" />
+          <Property Name="Departure_angle" Type="varchar" MaxLength="300" />
+          <Property Name="Front_tyres" Type="varchar" MaxLength="300" />
+          <Property Name="Gross_weight_GVM" Type="varchar" MaxLength="300" />
+          <Property Name="Ground_clearance_minimummaximum" Type="varchar" MaxLength="300" />
+          <Property Name="Height" Type="varchar" MaxLength="300" />
+          <Property Name="Length" Type="varchar" MaxLength="300" />
+          <Property Name="Rear_tyres" Type="varchar" MaxLength="300" />
+          <Property Name="Wheelbase" Type="varchar" MaxLength="300" />
+          <Property Name="Width_excl_mirrors_incl_mirrors" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="CarVariantYears">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientLogins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientId" Type="int" Nullable="false" />
+          <Property Name="logintime" Type="datetime" Nullable="false" />
+          <Property Name="logouttime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titleId" Type="int" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="contactNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="bestTimeToContactId" Type="int" Nullable="false" />
+          <Property Name="emailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="rememberMe" Type="bit" />
+          <Property Name="isEmailConfirmed" Type="bit" />
+          <Property Name="provinceId" Type="int" Nullable="false" />
+          <Property Name="townId" Type="int" Nullable="false" />
+          <Property Name="createdDate" Type="datetime" Nullable="false" />
+          <Property Name="modifiedDate" Type="datetime" />
+          <Property Name="lastLoginDate" Type="datetime" />
+          <Property Name="bidemailnotify" Type="bit" Nullable="false" />
+          <Property Name="bidsmsnotify" Type="bit" Nullable="false" />
+          <Property Name="closenextdayemailnotify" Type="bit" Nullable="false" />
+          <Property Name="closenextdaysmsnotify" Type="bit" Nullable="false" />
+          <Property Name="closedemailnotify" Type="bit" Nullable="false" />
+          <Property Name="closedsmsnotify" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Colors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DealerLogins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dealerId" Type="int" Nullable="false" />
+          <Property Name="logintime" Type="datetime" Nullable="false" />
+          <Property Name="logouttime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DealerMakes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dealerId" Type="int" Nullable="false" />
+          <Property Name="carMakeId" Type="int" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DealerProvinces">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dealerId" Type="int" Nullable="false" />
+          <Property Name="provinceId" Type="int" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dealers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titleId" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelephoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="emailAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="rememberMe" Type="bit" Nullable="false" />
+          <Property Name="isEmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="provinceId" Type="int" Nullable="false" />
+          <Property Name="townId" Type="int" Nullable="false" />
+          <Property Name="createdDate" Type="datetime" Nullable="false" />
+          <Property Name="modifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="lastLoginDate" Type="datetime" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+          <Property Name="Position" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="businessName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="registrationNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VATNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="paymentGatewayId" Type="int" Nullable="false" />
+          <Property Name="newlistemailnotify" Type="bit" Nullable="false" />
+          <Property Name="newlistsmsnotify" Type="bit" Nullable="false" />
+          <Property Name="lowerbidemailnotify" Type="bit" Nullable="false" />
+          <Property Name="lowerbidsmsnotify" Type="bit" Nullable="false" />
+          <Property Name="closenextdayemailnotify" Type="bit" Nullable="false" />
+          <Property Name="closenextdaysmsnotify" Type="bit" Nullable="false" />
+          <Property Name="closedemailnotify" Type="bit" Nullable="false" />
+          <Property Name="closedsmsnotify" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Faq_Types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Faqs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="faqtypeId" Type="int" Nullable="false" />
+          <Property Name="question" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="answer" Type="nvarchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FinanceHouses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentGateways">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentMethods">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provinces">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryId" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Titles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Towns">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="provinceId" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserLogins">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="logintime" Type="datetime" Nullable="false" />
+          <Property Name="logouttime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titleId" Type="int" />
+          <Property Name="userTypeId" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="contactNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="emailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="rememberMe" Type="bit" />
+          <Property Name="provinceId" Type="int" Nullable="false" />
+          <Property Name="townId" Type="int" Nullable="false" />
+          <Property Name="createdDate" Type="datetime" Nullable="false" />
+          <Property Name="modifiedDate" Type="datetime" />
+          <Property Name="lastLoginDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bids_CarRequest">
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarRequests">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="requestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_Dealer">
+          <End Role="Dealers" Type="Self.Dealers" Multiplicity="0..1" />
+          <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequest_Client">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="clientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequest_TradeInCarMake">
+          <End Role="CarMakes" Type="Self.CarMakes" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarMakes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="tradeinMakeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequest_TradeInCarModel">
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModels">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="tradeinModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequest_TradeInCarVariant">
+          <End Role="CarVariants" Type="Self.CarVariants" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarVariants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="tradeinVariantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_CarVariantFuels_TradeInFuelId">
+          <End Role="CarVariantFuels" Type="Self.CarVariantFuels" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarVariantFuels">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="tradeinFuelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_CarVariants">
+          <End Role="CarVariants" Type="Self.CarVariants" Multiplicity="1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarVariants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="carVariantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_CarVariantYears_TradeinYearId">
+          <End Role="CarVariantYears" Type="Self.CarVariantYears" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarVariantYears">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="tradeinYearId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_Colors_Color1">
+          <End Role="Colors" Type="Self.Colors" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colors">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="colorChoice1Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_Colors_Color2">
+          <End Role="Colors" Type="Self.Colors" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colors">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="colorChoice2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_Colors_Color3">
+          <End Role="Colors" Type="Self.Colors" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colors">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="colorChoice3Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_FinanceHouse">
+          <End Role="FinanceHouses" Type="Self.FinanceHouses" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinanceHouses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="financeHouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_PaymentMethod">
+          <End Role="PaymentMethods" Type="Self.PaymentMethods" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethods">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="paymentMethodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_WinningBid">
+          <End Role="Bids" Type="Self.Bids" Multiplicity="0..1" />
+          <End Role="CarRequests" Type="Self.CarRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bids">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequests">
+              <PropertyRef Name="winningBidId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarVariant_CarModel">
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
+          <End Role="CarVariants" Type="Self.CarVariants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModels">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarVariants">
+              <PropertyRef Name="carModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Town">
+          <End Role="Towns" Type="Self.Towns" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towns">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="townId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientLogins_Client">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="ClientLogins" Type="Self.ClientLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ClientLogins">
+              <PropertyRef Name="clientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_BestTimeToContact">
+          <End Role="BestTimeToContacts" Type="Self.BestTimeToContacts" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BestTimeToContacts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="bestTimeToContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_Provinces">
+          <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provinces">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_Titles">
+          <End Role="Titles" Type="Self.Titles" Multiplicity="0..1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Titles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="titleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dealer_Town">
+          <End Role="Towns" Type="Self.Towns" Multiplicity="1" />
+          <End Role="Dealers" Type="Self.Dealers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towns">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dealers">
+              <PropertyRef Name="townId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerLogins_Dealer">
+          <End Role="Dealers" Type="Self.Dealers" Multiplicity="1" />
+          <End Role="DealerLogins" Type="Self.DealerLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DealerLogins">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerMakes_CarMake">
+          <End Role="CarMakes" Type="Self.CarMakes" Multiplicity="1" />
+          <End Role="DealerMakes" Type="Self.DealerMakes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarMakes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DealerMakes">
+              <PropertyRef Name="carMakeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerMakes_Dealer">
+          <End Role="Dealers" Type="Self.Dealers" Multiplicity="1" />
+          <End Role="DealerMakes" Type="Self.DealerMakes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DealerMakes">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerProvince_Dealer">
+          <End Role="Dealers" Type="Self.Dealers" Multiplicity="1" />
+          <End Role="DealerProvinces" Type="Self.DealerProvinces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DealerProvinces">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerProvince_Province">
+          <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+          <End Role="DealerProvinces" Type="Self.DealerProvinces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provinces">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DealerProvinces">
+              <PropertyRef Name="provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dealers_PaymentGateway">
+          <End Role="PaymentGateways" Type="Self.PaymentGateways" Multiplicity="1" />
+          <End Role="Dealers" Type="Self.Dealers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentGateways">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dealers">
+              <PropertyRef Name="paymentGatewayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dealers_Provinces">
+          <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+          <End Role="Dealers" Type="Self.Dealers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provinces">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dealers">
+              <PropertyRef Name="provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dealers_Titles">
+          <End Role="Titles" Type="Self.Titles" Multiplicity="1" />
+          <End Role="Dealers" Type="Self.Dealers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Titles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dealers">
+              <PropertyRef Name="titleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faqs_Faq_Types">
+          <End Role="Faq_Types" Type="Self.Faq_Types" Multiplicity="1" />
+          <End Role="Faqs" Type="Self.Faqs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faq_Types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Faqs">
+              <PropertyRef Name="faqtypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Province_Country">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Provinces" Type="Self.Provinces" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Provinces">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Town_Province">
+          <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+          <End Role="Towns" Type="Self.Towns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provinces">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Towns">
+              <PropertyRef Name="provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLogins_User">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserLogins" Type="Self.UserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserLogins">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Provinces">
+          <End Role="Provinces" Type="Self.Provinces" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provinces">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Towns">
+          <End Role="Towns" Type="Self.Towns" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towns">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="townId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserTypes">
+          <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTypes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="userTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AutoNegotiatorDBModelStoreContainer">
+          <EntitySet Name="BestTimeToContacts" EntityType="Self.BestTimeToContacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bids" EntityType="Self.Bids" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarMakes" EntityType="Self.CarMakes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarModels" EntityType="Self.CarModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarRequests" EntityType="Self.CarRequests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarVariantFuels" EntityType="Self.CarVariantFuels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarVariants" EntityType="Self.CarVariants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarVariantYears" EntityType="Self.CarVariantYears" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientLogins" EntityType="Self.ClientLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Colors" EntityType="Self.Colors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DealerLogins" EntityType="Self.DealerLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DealerMakes" EntityType="Self.DealerMakes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DealerProvinces" EntityType="Self.DealerProvinces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dealers" EntityType="Self.Dealers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faq_Types" EntityType="Self.Faq_Types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faqs" EntityType="Self.Faqs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinanceHouses" EntityType="Self.FinanceHouses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentGateways" EntityType="Self.PaymentGateways" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Titles" EntityType="Self.Titles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Towns" EntityType="Self.Towns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogins" EntityType="Self.UserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bids_CarRequest" Association="Self.FK_Bids_CarRequest">
+            <End Role="CarRequests" EntitySet="CarRequests" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_Dealer" Association="Self.FK_Bids_Dealer">
+            <End Role="Dealers" EntitySet="Dealers" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequest_Client" Association="Self.FK_CarRequest_Client">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequest_TradeInCarMake" Association="Self.FK_CarRequest_TradeInCarMake">
+            <End Role="CarMakes" EntitySet="CarMakes" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequest_TradeInCarModel" Association="Self.FK_CarRequest_TradeInCarModel">
+            <End Role="CarModels" EntitySet="CarModels" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequest_TradeInCarVariant" Association="Self.FK_CarRequest_TradeInCarVariant">
+            <End Role="CarVariants" EntitySet="CarVariants" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_CarVariantFuels_TradeInFuelId" Association="Self.FK_CarRequests_CarVariantFuels_TradeInFuelId">
+            <End Role="CarVariantFuels" EntitySet="CarVariantFuels" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_CarVariants" Association="Self.FK_CarRequests_CarVariants">
+            <End Role="CarVariants" EntitySet="CarVariants" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_CarVariantYears_TradeinYearId" Association="Self.FK_CarRequests_CarVariantYears_TradeinYearId">
+            <End Role="CarVariantYears" EntitySet="CarVariantYears" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_Colors_Color1" Association="Self.FK_CarRequests_Colors_Color1">
+            <End Role="Colors" EntitySet="Colors" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_Colors_Color2" Association="Self.FK_CarRequests_Colors_Color2">
+            <End Role="Colors" EntitySet="Colors" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_Colors_Color3" Association="Self.FK_CarRequests_Colors_Color3">
+            <End Role="Colors" EntitySet="Colors" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_FinanceHouse" Association="Self.FK_CarRequests_FinanceHouse">
+            <End Role="FinanceHouses" EntitySet="FinanceHouses" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_PaymentMethod" Association="Self.FK_CarRequests_PaymentMethod">
+            <End Role="PaymentMethods" EntitySet="PaymentMethods" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_WinningBid" Association="Self.FK_CarRequests_WinningBid">
+            <End Role="Bids" EntitySet="Bids" />
+            <End Role="CarRequests" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarVariant_CarModel" Association="Self.FK_CarVariant_CarModel">
+            <End Role="CarModels" EntitySet="CarModels" />
+            <End Role="CarVariants" EntitySet="CarVariants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Town" Association="Self.FK_Client_Town">
+            <End Role="Towns" EntitySet="Towns" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientLogins_Client" Association="Self.FK_ClientLogins_Client">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ClientLogins" EntitySet="ClientLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients_BestTimeToContact" Association="Self.FK_Clients_BestTimeToContact">
+            <End Role="BestTimeToContacts" EntitySet="BestTimeToContacts" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients_Provinces" Association="Self.FK_Clients_Provinces">
+            <End Role="Provinces" EntitySet="Provinces" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients_Titles" Association="Self.FK_Clients_Titles">
+            <End Role="Titles" EntitySet="Titles" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dealer_Town" Association="Self.FK_Dealer_Town">
+            <End Role="Towns" EntitySet="Towns" />
+            <End Role="Dealers" EntitySet="Dealers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerLogins_Dealer" Association="Self.FK_DealerLogins_Dealer">
+            <End Role="Dealers" EntitySet="Dealers" />
+            <End Role="DealerLogins" EntitySet="DealerLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerMakes_CarMake" Association="Self.FK_DealerMakes_CarMake">
+            <End Role="CarMakes" EntitySet="CarMakes" />
+            <End Role="DealerMakes" EntitySet="DealerMakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerMakes_Dealer" Association="Self.FK_DealerMakes_Dealer">
+            <End Role="Dealers" EntitySet="Dealers" />
+            <End Role="DealerMakes" EntitySet="DealerMakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerProvince_Dealer" Association="Self.FK_DealerProvince_Dealer">
+            <End Role="Dealers" EntitySet="Dealers" />
+            <End Role="DealerProvinces" EntitySet="DealerProvinces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerProvince_Province" Association="Self.FK_DealerProvince_Province">
+            <End Role="Provinces" EntitySet="Provinces" />
+            <End Role="DealerProvinces" EntitySet="DealerProvinces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dealers_PaymentGateway" Association="Self.FK_Dealers_PaymentGateway">
+            <End Role="PaymentGateways" EntitySet="PaymentGateways" />
+            <End Role="Dealers" EntitySet="Dealers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dealers_Provinces" Association="Self.FK_Dealers_Provinces">
+            <End Role="Provinces" EntitySet="Provinces" />
+            <End Role="Dealers" EntitySet="Dealers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dealers_Titles" Association="Self.FK_Dealers_Titles">
+            <End Role="Titles" EntitySet="Titles" />
+            <End Role="Dealers" EntitySet="Dealers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faqs_Faq_Types" Association="Self.FK_Faqs_Faq_Types">
+            <End Role="Faq_Types" EntitySet="Faq_Types" />
+            <End Role="Faqs" EntitySet="Faqs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Province_Country" Association="Self.FK_Province_Country">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Provinces" EntitySet="Provinces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Town_Province" Association="Self.FK_Town_Province">
+            <End Role="Provinces" EntitySet="Provinces" />
+            <End Role="Towns" EntitySet="Towns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLogins_User" Association="Self.FK_UserLogins_User">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserLogins" EntitySet="UserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Provinces" Association="Self.FK_Users_Provinces">
+            <End Role="Provinces" EntitySet="Provinces" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Towns" Association="Self.FK_Users_Towns">
+            <End Role="Towns" EntitySet="Towns" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserTypes" Association="Self.FK_Users_UserTypes">
+            <End Role="UserTypes" EntitySet="UserTypes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AutoNegotiatorDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AutoNegotiatorDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BestTimeToContacts" EntityType="AutoNegotiatorDBModel.BestTimeToContact" />
+          <EntitySet Name="Bids" EntityType="AutoNegotiatorDBModel.Bid" />
+          <EntitySet Name="CarMakes" EntityType="AutoNegotiatorDBModel.CarMake" />
+          <EntitySet Name="CarModels" EntityType="AutoNegotiatorDBModel.CarModel" />
+          <EntitySet Name="CarRequests" EntityType="AutoNegotiatorDBModel.CarRequest" />
+          <EntitySet Name="CarVariantFuels" EntityType="AutoNegotiatorDBModel.CarVariantFuel" />
+          <EntitySet Name="CarVariants" EntityType="AutoNegotiatorDBModel.CarVariant" />
+          <EntitySet Name="CarVariantYears" EntityType="AutoNegotiatorDBModel.CarVariantYear" />
+          <EntitySet Name="ClientLogins" EntityType="AutoNegotiatorDBModel.ClientLogin" />
+          <EntitySet Name="Clients" EntityType="AutoNegotiatorDBModel.Client" />
+          <EntitySet Name="Colors" EntityType="AutoNegotiatorDBModel.Color" />
+          <EntitySet Name="Countries" EntityType="AutoNegotiatorDBModel.Country" />
+          <EntitySet Name="DealerLogins" EntityType="AutoNegotiatorDBModel.DealerLogin" />
+          <EntitySet Name="DealerMakes" EntityType="AutoNegotiatorDBModel.DealerMake" />
+          <EntitySet Name="DealerProvinces" EntityType="AutoNegotiatorDBModel.DealerProvince" />
+          <EntitySet Name="Dealers" EntityType="AutoNegotiatorDBModel.Dealer" />
+          <EntitySet Name="Faq_Types" EntityType="AutoNegotiatorDBModel.Faq_Types" />
+          <EntitySet Name="Faqs" EntityType="AutoNegotiatorDBModel.Faq" />
+          <EntitySet Name="FinanceHouses" EntityType="AutoNegotiatorDBModel.FinanceHous" />
+          <EntitySet Name="PaymentGateways" EntityType="AutoNegotiatorDBModel.PaymentGateway" />
+          <EntitySet Name="PaymentMethods" EntityType="AutoNegotiatorDBModel.PaymentMethod" />
+          <EntitySet Name="Provinces" EntityType="AutoNegotiatorDBModel.Province" />
+          <EntitySet Name="Titles" EntityType="AutoNegotiatorDBModel.Title" />
+          <EntitySet Name="Towns" EntityType="AutoNegotiatorDBModel.Town" />
+          <EntitySet Name="UserLogins" EntityType="AutoNegotiatorDBModel.UserLogin" />
+          <EntitySet Name="Users" EntityType="AutoNegotiatorDBModel.User" />
+          <EntitySet Name="UserTypes" EntityType="AutoNegotiatorDBModel.UserType" />
+          <AssociationSet Name="FK_Clients_BestTimeToContact" Association="AutoNegotiatorDBModel.FK_Clients_BestTimeToContact">
+            <End Role="BestTimeToContact" EntitySet="BestTimeToContacts" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_CarRequest" Association="AutoNegotiatorDBModel.FK_Bids_CarRequest">
+            <End Role="CarRequest" EntitySet="CarRequests" />
+            <End Role="Bid" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_Dealer" Association="AutoNegotiatorDBModel.FK_Bids_Dealer">
+            <End Role="Dealer" EntitySet="Dealers" />
+            <End Role="Bid" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_WinningBid" Association="AutoNegotiatorDBModel.FK_CarRequests_WinningBid">
+            <End Role="Bid" EntitySet="Bids" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequest_TradeInCarMake" Association="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarMake">
+            <End Role="CarMake" EntitySet="CarMakes" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerMakes_CarMake" Association="AutoNegotiatorDBModel.FK_DealerMakes_CarMake">
+            <End Role="CarMake" EntitySet="CarMakes" />
+            <End Role="DealerMake" EntitySet="DealerMakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequest_TradeInCarModel" Association="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarModel">
+            <End Role="CarModel" EntitySet="CarModels" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarVariant_CarModel" Association="AutoNegotiatorDBModel.FK_CarVariant_CarModel">
+            <End Role="CarModel" EntitySet="CarModels" />
+            <End Role="CarVariant" EntitySet="CarVariants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequest_Client" Association="AutoNegotiatorDBModel.FK_CarRequest_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequest_TradeInCarVariant" Association="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarVariant">
+            <End Role="CarVariant" EntitySet="CarVariants" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_CarVariantFuels_TradeInFuelId" Association="AutoNegotiatorDBModel.FK_CarRequests_CarVariantFuels_TradeInFuelId">
+            <End Role="CarVariantFuel" EntitySet="CarVariantFuels" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_CarVariants" Association="AutoNegotiatorDBModel.FK_CarRequests_CarVariants">
+            <End Role="CarVariant" EntitySet="CarVariants" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_CarVariantYears_TradeinYearId" Association="AutoNegotiatorDBModel.FK_CarRequests_CarVariantYears_TradeinYearId">
+            <End Role="CarVariantYear" EntitySet="CarVariantYears" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_Colors_Color1" Association="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color1">
+            <End Role="Color" EntitySet="Colors" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_Colors_Color2" Association="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color2">
+            <End Role="Color" EntitySet="Colors" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_Colors_Color3" Association="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color3">
+            <End Role="Color" EntitySet="Colors" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_FinanceHouse" Association="AutoNegotiatorDBModel.FK_CarRequests_FinanceHouse">
+            <End Role="FinanceHous" EntitySet="FinanceHouses" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarRequests_PaymentMethod" Association="AutoNegotiatorDBModel.FK_CarRequests_PaymentMethod">
+            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+            <End Role="CarRequest" EntitySet="CarRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientLogins_Client" Association="AutoNegotiatorDBModel.FK_ClientLogins_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="ClientLogin" EntitySet="ClientLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Town" Association="AutoNegotiatorDBModel.FK_Client_Town">
+            <End Role="Town" EntitySet="Towns" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients_Provinces" Association="AutoNegotiatorDBModel.FK_Clients_Provinces">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients_Titles" Association="AutoNegotiatorDBModel.FK_Clients_Titles">
+            <End Role="Title" EntitySet="Titles" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Province_Country" Association="AutoNegotiatorDBModel.FK_Province_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Province" EntitySet="Provinces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerLogins_Dealer" Association="AutoNegotiatorDBModel.FK_DealerLogins_Dealer">
+            <End Role="Dealer" EntitySet="Dealers" />
+            <End Role="DealerLogin" EntitySet="DealerLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerMakes_Dealer" Association="AutoNegotiatorDBModel.FK_DealerMakes_Dealer">
+            <End Role="Dealer" EntitySet="Dealers" />
+            <End Role="DealerMake" EntitySet="DealerMakes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerProvince_Dealer" Association="AutoNegotiatorDBModel.FK_DealerProvince_Dealer">
+            <End Role="Dealer" EntitySet="Dealers" />
+            <End Role="DealerProvince" EntitySet="DealerProvinces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealerProvince_Province" Association="AutoNegotiatorDBModel.FK_DealerProvince_Province">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="DealerProvince" EntitySet="DealerProvinces" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dealer_Town" Association="AutoNegotiatorDBModel.FK_Dealer_Town">
+            <End Role="Town" EntitySet="Towns" />
+            <End Role="Dealer" EntitySet="Dealers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dealers_PaymentGateway" Association="AutoNegotiatorDBModel.FK_Dealers_PaymentGateway">
+            <End Role="PaymentGateway" EntitySet="PaymentGateways" />
+            <End Role="Dealer" EntitySet="Dealers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dealers_Provinces" Association="AutoNegotiatorDBModel.FK_Dealers_Provinces">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="Dealer" EntitySet="Dealers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dealers_Titles" Association="AutoNegotiatorDBModel.FK_Dealers_Titles">
+            <End Role="Title" EntitySet="Titles" />
+            <End Role="Dealer" EntitySet="Dealers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faqs_Faq_Types" Association="AutoNegotiatorDBModel.FK_Faqs_Faq_Types">
+            <End Role="Faq_Types" EntitySet="Faq_Types" />
+            <End Role="Faq" EntitySet="Faqs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Town_Province" Association="AutoNegotiatorDBModel.FK_Town_Province">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="Town" EntitySet="Towns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Provinces" Association="AutoNegotiatorDBModel.FK_Users_Provinces">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Towns" Association="AutoNegotiatorDBModel.FK_Users_Towns">
+            <End Role="Town" EntitySet="Towns" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLogins_User" Association="AutoNegotiatorDBModel.FK_UserLogins_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserLogin" EntitySet="UserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserTypes" Association="AutoNegotiatorDBModel.FK_Users_UserTypes">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BestTimeToContact">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clients" Relationship="AutoNegotiatorDBModel.FK_Clients_BestTimeToContact" FromRole="BestTimeToContact" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Bid">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dealerId" Type="Int32" />
+          <Property Name="requestId" Type="Int32" Nullable="false" />
+          <Property Name="bidAmount" Type="Int32" />
+          <Property Name="isWinningBid" Type="Boolean" />
+          <Property Name="bidCreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="winningDate" Type="DateTime" Precision="3" />
+          <Property Name="isDealerInterested" Type="Boolean" />
+          <Property Name="dealerComments" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="adminComments" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="adminId" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="bidUpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CarRequest" Relationship="AutoNegotiatorDBModel.FK_Bids_CarRequest" FromRole="Bid" ToRole="CarRequest" />
+          <NavigationProperty Name="Dealer" Relationship="AutoNegotiatorDBModel.FK_Bids_Dealer" FromRole="Bid" ToRole="Dealer" />
+          <NavigationProperty Name="CarRequests" Relationship="AutoNegotiatorDBModel.FK_CarRequests_WinningBid" FromRole="Bid" ToRole="CarRequest" />
+        </EntityType>
+        <EntityType Name="CarMake">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="makeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CarRequests" Relationship="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarMake" FromRole="CarMake" ToRole="CarRequest" />
+          <NavigationProperty Name="DealerMakes" Relationship="AutoNegotiatorDBModel.FK_DealerMakes_CarMake" FromRole="CarMake" ToRole="DealerMake" />
+        </EntityType>
+        <EntityType Name="CarModel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="carMakeId" Type="Int32" Nullable="false" />
+          <Property Name="carModelName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CarRequests" Relationship="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarModel" FromRole="CarModel" ToRole="CarRequest" />
+          <NavigationProperty Name="CarVariants" Relationship="AutoNegotiatorDBModel.FK_CarVariant_CarModel" FromRole="CarModel" ToRole="CarVariant" />
+        </EntityType>
+        <EntityType Name="CarRequest">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="carVariantId" Type="Int32" Nullable="false" />
+          <Property Name="clientId" Type="Int32" Nullable="false" />
+          <Property Name="requestedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="deliveryRequestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="colorChoice1Id" Type="Int32" />
+          <Property Name="colorChoice2Id" Type="Int32" />
+          <Property Name="colorChoice3Id" Type="Int32" />
+          <Property Name="canOfferDifferentColor" Type="Boolean" Nullable="false" />
+          <Property Name="paymentMethodId" Type="Int32" />
+          <Property Name="financeApproved" Type="Boolean" Nullable="false" />
+          <Property Name="financeHouseId" Type="Int32" />
+          <Property Name="depositAmount" Type="Int32" />
+          <Property Name="tradeinVehicleAvailable" Type="Boolean" Nullable="false" />
+          <Property Name="tradeinMakeId" Type="Int32" />
+          <Property Name="tradeinModelId" Type="Int32" />
+          <Property Name="tradeinVariantId" Type="Int32" />
+          <Property Name="tradeinYearId" Type="Int32" />
+          <Property Name="tradeinFuelId" Type="Int32" />
+          <Property Name="tradeinDescription" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="tradeinValue" Type="Int32" />
+          <Property Name="tradeinKMs" Type="Int32" />
+          <Property Name="clientComments" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="isRequestActive" Type="Boolean" Nullable="false" />
+          <Property Name="winningBidId" Type="Int32" />
+          <Property Name="clientAcceptedWinningBid" Type="Boolean" />
+          <Property Name="actualSellingPrice" Type="Int32" />
+          <Property Name="commissionCalculated" Type="Int32" />
+          <Property Name="commisionReceived" Type="Int32" />
+          <Property Name="AdminComments" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="isRequestClosed" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Bids" Relationship="AutoNegotiatorDBModel.FK_Bids_CarRequest" FromRole="CarRequest" ToRole="Bid" />
+          <NavigationProperty Name="Bid" Relationship="AutoNegotiatorDBModel.FK_CarRequests_WinningBid" FromRole="CarRequest" ToRole="Bid" />
+          <NavigationProperty Name="CarMake" Relationship="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarMake" FromRole="CarRequest" ToRole="CarMake" />
+          <NavigationProperty Name="CarModel" Relationship="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarModel" FromRole="CarRequest" ToRole="CarModel" />
+          <NavigationProperty Name="Client" Relationship="AutoNegotiatorDBModel.FK_CarRequest_Client" FromRole="CarRequest" ToRole="Client" />
+          <NavigationProperty Name="CarVariant" Relationship="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarVariant" FromRole="CarRequest" ToRole="CarVariant" />
+          <NavigationProperty Name="CarVariantFuel" Relationship="AutoNegotiatorDBModel.FK_CarRequests_CarVariantFuels_TradeInFuelId" FromRole="CarRequest" ToRole="CarVariantFuel" />
+          <NavigationProperty Name="CarVariant1" Relationship="AutoNegotiatorDBModel.FK_CarRequests_CarVariants" FromRole="CarRequest" ToRole="CarVariant" />
+          <NavigationProperty Name="CarVariantYear" Relationship="AutoNegotiatorDBModel.FK_CarRequests_CarVariantYears_TradeinYearId" FromRole="CarRequest" ToRole="CarVariantYear" />
+          <NavigationProperty Name="Color" Relationship="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color1" FromRole="CarRequest" ToRole="Color" />
+          <NavigationProperty Name="Color1" Relationship="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color2" FromRole="CarRequest" ToRole="Color" />
+          <NavigationProperty Name="Color2" Relationship="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color3" FromRole="CarRequest" ToRole="Color" />
+          <NavigationProperty Name="FinanceHous" Relationship="AutoNegotiatorDBModel.FK_CarRequests_FinanceHouse" FromRole="CarRequest" ToRole="FinanceHous" />
+          <NavigationProperty Name="PaymentMethod" Relationship="AutoNegotiatorDBModel.FK_CarRequests_PaymentMethod" FromRole="CarRequest" ToRole="PaymentMethod" />
+        </EntityType>
+        <EntityType Name="CarVariantFuel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CarRequests" Relationship="AutoNegotiatorDBModel.FK_CarRequests_CarVariantFuels_TradeInFuelId" FromRole="CarVariantFuel" ToRole="CarRequest" />
+        </EntityType>
+        <EntityType Name="CarVariant">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="carModelId" Type="Int32" Nullable="false" />
+          <Property Name="carVariantName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <Property Name="AveragePrice" Type="Int32" />
+          <Property Name="BodyType" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Cylinder_layout_quantity" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Drive" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Engine_capacity" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Engine_detail" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Engine_size_litre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Fuel_tank_capacity_incl_reserve" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Fuel_type" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Gears" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Gearshift_paddles" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Low_range" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="No_of_doors" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Sunroof" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Gearbox" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Transmission_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Turbocharger" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Air_conditioning" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Aux_in_auxiliary_input_jack" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Bluetooth_connectivity" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Camera_for_park_distance_control" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Climate_control__automatic_air_conditioning" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Cruise_control" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Electric_steering_column_adjustment" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Electric_adjust_mirrors" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Engine_auto_StopStart__idle_stop__eco_stop" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Maintenance_plan" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Maintenance_plan_distance" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Maintenance_plan_time_years" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Multi_function_steering_wheel_controls" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Navigation" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Park_distance_control_PDC___front" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Park_distance_control_PDC___rear" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Power_steering" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Service_interval_distance" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="USB_port" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Voice_control" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Warranty_distance" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Warranty_time_years" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Acceleration_0100km_h" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Co2_emissions" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Engine_position_location" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Fuel_range_average" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Fuel_consumption_average" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Maximum_top_speed" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Power_maximum_detail" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Power_peak_revs" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Torque_maximum" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Torque_peak_revs" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CD_player" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Electric_seat_adjustment_driver" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Electric_seat_adjustment_front_passenger" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Electric_windows" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Folding_rear_seat" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Heated_seats___front" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ISOFIX_child_seat_mountings" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Leather_upholstery" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="On_board_computer__multi_information_display" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Seats" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Split_rear_seat" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Ventilated_seats___front" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Airbag_quantity" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Anti_lock_braking_system_ABS" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Autodim_exterior_mirrors" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Autodim_interior_mirror" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Brake_assist_BASEBA" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Curtain_airbags" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Daytime_drivingrunning_lights" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Diff_lock___centre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Diff_lock___front" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Diff_lock___rear" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Driver_airbag" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Electronic_brake_distribution_EBD" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Emergency_brake_hazard_lights" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Front_fog_lampslights" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Front_passenger_airbag" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="High_level_3rd_brake_light" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Hill_start_assist__hill_holder" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Lane_change__blind_spot_warningassistmonitor" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Light_sensor__automatic_light_control_auto_on_off_lights" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Rain_sensor_auto_wipers" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Remote_central_locking" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Stability_control" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Traction_control" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Tyre_pressure_sensormonitor__deflation_detection_system" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Xenon_headlights" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Alloy_wheelsrims" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Approach_angle" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Axle_configuration" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Breakover_ramp_angle" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Departure_angle" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Front_tyres" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Gross_weight_GVM" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Ground_clearance_minimummaximum" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Length" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Rear_tyres" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Wheelbase" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Width_excl_mirrors_incl_mirrors" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CarModel" Relationship="AutoNegotiatorDBModel.FK_CarVariant_CarModel" FromRole="CarVariant" ToRole="CarModel" />
+          <NavigationProperty Name="CarRequests" Relationship="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarVariant" FromRole="CarVariant" ToRole="CarRequest" />
+          <NavigationProperty Name="CarRequests1" Relationship="AutoNegotiatorDBModel.FK_CarRequests_CarVariants" FromRole="CarVariant" ToRole="CarRequest" />
+        </EntityType>
+        <EntityType Name="CarVariantYear">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CarRequests" Relationship="AutoNegotiatorDBModel.FK_CarRequests_CarVariantYears_TradeinYearId" FromRole="CarVariantYear" ToRole="CarRequest" />
+        </EntityType>
+        <EntityType Name="ClientLogin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientId" Type="Int32" Nullable="false" />
+          <Property Name="logintime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="logouttime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Client" Relationship="AutoNegotiatorDBModel.FK_ClientLogins_Client" FromRole="ClientLogin" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titleId" Type="Int32" />
+          <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bestTimeToContactId" Type="Int32" Nullable="false" />
+          <Property Name="emailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rememberMe" Type="Boolean" />
+          <Property Name="isEmailConfirmed" Type="Boolean" />
+          <Property Name="provinceId" Type="Int32" Nullable="false" />
+          <Property Name="townId" Type="Int32" Nullable="false" />
+          <Property Name="createdDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="lastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="bidemailnotify" Type="Boolean" Nullable="false" />
+          <Property Name="bidsmsnotify" Type="Boolean" Nullable="false" />
+          <Property Name="closenextdayemailnotify" Type="Boolean" Nullable="false" />
+          <Property Name="closenextdaysmsnotify" Type="Boolean" Nullable="false" />
+          <Property Name="closedemailnotify" Type="Boolean" Nullable="false" />
+          <Property Name="closedsmsnotify" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BestTimeToContact" Relationship="AutoNegotiatorDBModel.FK_Clients_BestTimeToContact" FromRole="Client" ToRole="BestTimeToContact" />
+          <NavigationProperty Name="CarRequests" Relationship="AutoNegotiatorDBModel.FK_CarRequest_Client" FromRole="Client" ToRole="CarRequest" />
+          <NavigationProperty Name="ClientLogins" Relationship="AutoNegotiatorDBModel.FK_ClientLogins_Client" FromRole="Client" ToRole="ClientLogin" />
+          <NavigationProperty Name="Town" Relationship="AutoNegotiatorDBModel.FK_Client_Town" FromRole="Client" ToRole="Town" />
+          <NavigationProperty Name="Province" Relationship="AutoNegotiatorDBModel.FK_Clients_Provinces" FromRole="Client" ToRole="Province" />
+          <NavigationProperty Name="Title" Relationship="AutoNegotiatorDBModel.FK_Clients_Titles" FromRole="Client" ToRole="Title" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CarRequests" Relationship="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color1" FromRole="Color" ToRole="CarRequest" />
+          <NavigationProperty Name="CarRequests1" Relationship="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color2" FromRole="Color" ToRole="CarRequest" />
+          <NavigationProperty Name="CarRequests2" Relationship="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color3" FromRole="Color" ToRole="CarRequest" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryCode" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Provinces" Relationship="AutoNegotiatorDBModel.FK_Province_Country" FromRole="Country" ToRole="Province" />
+        </EntityType>
+        <EntityType Name="DealerLogin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dealerId" Type="Int32" Nullable="false" />
+          <Property Name="logintime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="logouttime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Dealer" Relationship="AutoNegotiatorDBModel.FK_DealerLogins_Dealer" FromRole="DealerLogin" ToRole="Dealer" />
+        </EntityType>
+        <EntityType Name="DealerMake">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dealerId" Type="Int32" Nullable="false" />
+          <Property Name="carMakeId" Type="Int32" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CarMake" Relationship="AutoNegotiatorDBModel.FK_DealerMakes_CarMake" FromRole="DealerMake" ToRole="CarMake" />
+          <NavigationProperty Name="Dealer" Relationship="AutoNegotiatorDBModel.FK_DealerMakes_Dealer" FromRole="DealerMake" ToRole="Dealer" />
+        </EntityType>
+        <EntityType Name="DealerProvince">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dealerId" Type="Int32" Nullable="false" />
+          <Property Name="provinceId" Type="Int32" Nullable="false" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Dealer" Relationship="AutoNegotiatorDBModel.FK_DealerProvince_Dealer" FromRole="DealerProvince" ToRole="Dealer" />
+          <NavigationProperty Name="Province" Relationship="AutoNegotiatorDBModel.FK_DealerProvince_Province" FromRole="DealerProvince" ToRole="Province" />
+        </EntityType>
+        <EntityType Name="Dealer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titleId" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelephoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rememberMe" Type="Boolean" Nullable="false" />
+          <Property Name="isEmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="provinceId" Type="Int32" Nullable="false" />
+          <Property Name="townId" Type="Int32" Nullable="false" />
+          <Property Name="createdDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <Property Name="Position" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="businessName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="registrationNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VATNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="paymentGatewayId" Type="Int32" Nullable="false" />
+          <Property Name="newlistemailnotify" Type="Boolean" Nullable="false" />
+          <Property Name="newlistsmsnotify" Type="Boolean" Nullable="false" />
+          <Property Name="lowerbidemailnotify" Type="Boolean" Nullable="false" />
+          <Property Name="lowerbidsmsnotify" Type="Boolean" Nullable="false" />
+          <Property Name="closenextdayemailnotify" Type="Boolean" Nullable="false" />
+          <Property Name="closenextdaysmsnotify" Type="Boolean" Nullable="false" />
+          <Property Name="closedemailnotify" Type="Boolean" Nullable="false" />
+          <Property Name="closedsmsnotify" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Bids" Relationship="AutoNegotiatorDBModel.FK_Bids_Dealer" FromRole="Dealer" ToRole="Bid" />
+          <NavigationProperty Name="DealerLogins" Relationship="AutoNegotiatorDBModel.FK_DealerLogins_Dealer" FromRole="Dealer" ToRole="DealerLogin" />
+          <NavigationProperty Name="DealerMakes" Relationship="AutoNegotiatorDBModel.FK_DealerMakes_Dealer" FromRole="Dealer" ToRole="DealerMake" />
+          <NavigationProperty Name="DealerProvinces" Relationship="AutoNegotiatorDBModel.FK_DealerProvince_Dealer" FromRole="Dealer" ToRole="DealerProvince" />
+          <NavigationProperty Name="Town" Relationship="AutoNegotiatorDBModel.FK_Dealer_Town" FromRole="Dealer" ToRole="Town" />
+          <NavigationProperty Name="PaymentGateway" Relationship="AutoNegotiatorDBModel.FK_Dealers_PaymentGateway" FromRole="Dealer" ToRole="PaymentGateway" />
+          <NavigationProperty Name="Province" Relationship="AutoNegotiatorDBModel.FK_Dealers_Provinces" FromRole="Dealer" ToRole="Province" />
+          <NavigationProperty Name="Title" Relationship="AutoNegotiatorDBModel.FK_Dealers_Titles" FromRole="Dealer" ToRole="Title" />
+        </EntityType>
+        <EntityType Name="Faq_Types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Faqs" Relationship="AutoNegotiatorDBModel.FK_Faqs_Faq_Types" FromRole="Faq_Types" ToRole="Faq" />
+        </EntityType>
+        <EntityType Name="Faq">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="faqtypeId" Type="Int32" Nullable="false" />
+          <Property Name="question" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="answer" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Faq_Types" Relationship="AutoNegotiatorDBModel.FK_Faqs_Faq_Types" FromRole="Faq" ToRole="Faq_Types" />
+        </EntityType>
+        <EntityType Name="FinanceHous">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CarRequests" Relationship="AutoNegotiatorDBModel.FK_CarRequests_FinanceHouse" FromRole="FinanceHous" ToRole="CarRequest" />
+        </EntityType>
+        <EntityType Name="PaymentGateway">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dealers" Relationship="AutoNegotiatorDBModel.FK_Dealers_PaymentGateway" FromRole="PaymentGateway" ToRole="Dealer" />
+        </EntityType>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CarRequests" Relationship="AutoNegotiatorDBModel.FK_CarRequests_PaymentMethod" FromRole="PaymentMethod" ToRole="CarRequest" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clients" Relationship="AutoNegotiatorDBModel.FK_Clients_Provinces" FromRole="Province" ToRole="Client" />
+          <NavigationProperty Name="Country" Relationship="AutoNegotiatorDBModel.FK_Province_Country" FromRole="Province" ToRole="Country" />
+          <NavigationProperty Name="DealerProvinces" Relationship="AutoNegotiatorDBModel.FK_DealerProvince_Province" FromRole="Province" ToRole="DealerProvince" />
+          <NavigationProperty Name="Dealers" Relationship="AutoNegotiatorDBModel.FK_Dealers_Provinces" FromRole="Province" ToRole="Dealer" />
+          <NavigationProperty Name="Towns" Relationship="AutoNegotiatorDBModel.FK_Town_Province" FromRole="Province" ToRole="Town" />
+          <NavigationProperty Name="Users" Relationship="AutoNegotiatorDBModel.FK_Users_Provinces" FromRole="Province" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Clients" Relationship="AutoNegotiatorDBModel.FK_Clients_Titles" FromRole="Title" ToRole="Client" />
+          <NavigationProperty Name="Dealers" Relationship="AutoNegotiatorDBModel.FK_Dealers_Titles" FromRole="Title" ToRole="Dealer" />
+        </EntityType>
+        <EntityType Name="Town">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="provinceId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="AutoNegotiatorDBModel.FK_Client_Town" FromRole="Town" ToRole="Client" />
+          <NavigationProperty Name="Dealers" Relationship="AutoNegotiatorDBModel.FK_Dealer_Town" FromRole="Town" ToRole="Dealer" />
+          <NavigationProperty Name="Province" Relationship="AutoNegotiatorDBModel.FK_Town_Province" FromRole="Town" ToRole="Province" />
+          <NavigationProperty Name="Users" Relationship="AutoNegotiatorDBModel.FK_Users_Towns" FromRole="Town" ToRole="User" />
+        </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="logintime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="logouttime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="AutoNegotiatorDBModel.FK_UserLogins_User" FromRole="UserLogin" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titleId" Type="Int32" />
+          <Property Name="userTypeId" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="emailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rememberMe" Type="Boolean" />
+          <Property Name="provinceId" Type="Int32" Nullable="false" />
+          <Property Name="townId" Type="Int32" Nullable="false" />
+          <Property Name="createdDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="lastLoginDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Province" Relationship="AutoNegotiatorDBModel.FK_Users_Provinces" FromRole="User" ToRole="Province" />
+          <NavigationProperty Name="Town" Relationship="AutoNegotiatorDBModel.FK_Users_Towns" FromRole="User" ToRole="Town" />
+          <NavigationProperty Name="UserLogins" Relationship="AutoNegotiatorDBModel.FK_UserLogins_User" FromRole="User" ToRole="UserLogin" />
+          <NavigationProperty Name="UserType" Relationship="AutoNegotiatorDBModel.FK_Users_UserTypes" FromRole="User" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="AutoNegotiatorDBModel.FK_Users_UserTypes" FromRole="UserType" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Clients_BestTimeToContact">
+          <End Type="AutoNegotiatorDBModel.BestTimeToContact" Role="BestTimeToContact" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BestTimeToContact">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="bestTimeToContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_CarRequest">
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Bid" Role="Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarRequest">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bid">
+              <PropertyRef Name="requestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_Dealer">
+          <End Type="AutoNegotiatorDBModel.Dealer" Role="Dealer" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.Bid" Role="Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bid">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_WinningBid">
+          <End Type="AutoNegotiatorDBModel.Bid" Role="Bid" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bid">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="winningBidId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequest_TradeInCarMake">
+          <End Type="AutoNegotiatorDBModel.CarMake" Role="CarMake" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarMake">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="tradeinMakeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerMakes_CarMake">
+          <End Type="AutoNegotiatorDBModel.CarMake" Role="CarMake" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.DealerMake" Role="DealerMake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarMake">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DealerMake">
+              <PropertyRef Name="carMakeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequest_TradeInCarModel">
+          <End Type="AutoNegotiatorDBModel.CarModel" Role="CarModel" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="tradeinModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarVariant_CarModel">
+          <End Type="AutoNegotiatorDBModel.CarModel" Role="CarModel" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.CarVariant" Role="CarVariant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarModel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarVariant">
+              <PropertyRef Name="carModelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequest_Client">
+          <End Type="AutoNegotiatorDBModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="clientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequest_TradeInCarVariant">
+          <End Type="AutoNegotiatorDBModel.CarVariant" Role="CarVariant" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarVariant">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="tradeinVariantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_CarVariantFuels_TradeInFuelId">
+          <End Type="AutoNegotiatorDBModel.CarVariantFuel" Role="CarVariantFuel" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarVariantFuel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="tradeinFuelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_CarVariants">
+          <End Type="AutoNegotiatorDBModel.CarVariant" Role="CarVariant" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarVariant">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="carVariantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_CarVariantYears_TradeinYearId">
+          <End Type="AutoNegotiatorDBModel.CarVariantYear" Role="CarVariantYear" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarVariantYear">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="tradeinYearId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_Colors_Color1">
+          <End Type="AutoNegotiatorDBModel.Color" Role="Color" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="colorChoice1Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_Colors_Color2">
+          <End Type="AutoNegotiatorDBModel.Color" Role="Color" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="colorChoice2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_Colors_Color3">
+          <End Type="AutoNegotiatorDBModel.Color" Role="Color" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="colorChoice3Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_FinanceHouse">
+          <End Type="AutoNegotiatorDBModel.FinanceHous" Role="FinanceHous" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FinanceHous">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="financeHouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarRequests_PaymentMethod">
+          <End Type="AutoNegotiatorDBModel.PaymentMethod" Role="PaymentMethod" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.CarRequest" Role="CarRequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CarRequest">
+              <PropertyRef Name="paymentMethodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientLogins_Client">
+          <End Type="AutoNegotiatorDBModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.ClientLogin" Role="ClientLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ClientLogin">
+              <PropertyRef Name="clientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Town">
+          <End Type="AutoNegotiatorDBModel.Town" Role="Town" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="townId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_Provinces">
+          <End Type="AutoNegotiatorDBModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_Titles">
+          <End Type="AutoNegotiatorDBModel.Title" Role="Title" Multiplicity="0..1" />
+          <End Type="AutoNegotiatorDBModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Title">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="titleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Province_Country">
+          <End Type="AutoNegotiatorDBModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Province" Role="Province" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Province">
+              <PropertyRef Name="countryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerLogins_Dealer">
+          <End Type="AutoNegotiatorDBModel.Dealer" Role="Dealer" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.DealerLogin" Role="DealerLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DealerLogin">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerMakes_Dealer">
+          <End Type="AutoNegotiatorDBModel.Dealer" Role="Dealer" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.DealerMake" Role="DealerMake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DealerMake">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerProvince_Dealer">
+          <End Type="AutoNegotiatorDBModel.Dealer" Role="Dealer" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.DealerProvince" Role="DealerProvince" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DealerProvince">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealerProvince_Province">
+          <End Type="AutoNegotiatorDBModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.DealerProvince" Role="DealerProvince" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DealerProvince">
+              <PropertyRef Name="provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dealer_Town">
+          <End Type="AutoNegotiatorDBModel.Town" Role="Town" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Dealer" Role="Dealer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dealer">
+              <PropertyRef Name="townId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dealers_PaymentGateway">
+          <End Type="AutoNegotiatorDBModel.PaymentGateway" Role="PaymentGateway" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Dealer" Role="Dealer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentGateway">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dealer">
+              <PropertyRef Name="paymentGatewayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dealers_Provinces">
+          <End Type="AutoNegotiatorDBModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Dealer" Role="Dealer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dealer">
+              <PropertyRef Name="provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dealers_Titles">
+          <End Type="AutoNegotiatorDBModel.Title" Role="Title" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Dealer" Role="Dealer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Title">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Dealer">
+              <PropertyRef Name="titleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faqs_Faq_Types">
+          <End Type="AutoNegotiatorDBModel.Faq_Types" Role="Faq_Types" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Faq" Role="Faq" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faq_Types">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Faq">
+              <PropertyRef Name="faqtypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Town_Province">
+          <End Type="AutoNegotiatorDBModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.Town" Role="Town" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Town">
+              <PropertyRef Name="provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Provinces">
+          <End Type="AutoNegotiatorDBModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="provinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Towns">
+          <End Type="AutoNegotiatorDBModel.Town" Role="Town" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Town">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="townId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLogins_User">
+          <End Type="AutoNegotiatorDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.UserLogin" Role="UserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="UserLogin">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserTypes">
+          <End Type="AutoNegotiatorDBModel.UserType" Role="UserType" Multiplicity="1" />
+          <End Type="AutoNegotiatorDBModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="userTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AutoNegotiatorDBModelStoreContainer" CdmEntityContainer="AutoNegotiatorDBEntities">
+          <EntitySetMapping Name="BestTimeToContacts">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.BestTimeToContact">
+              <MappingFragment StoreEntitySet="BestTimeToContacts">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bids">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.Bid">
+              <MappingFragment StoreEntitySet="Bids">
+                <ScalarProperty Name="bidUpdatedDate" ColumnName="bidUpdatedDate" />
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="adminComments" ColumnName="adminComments" />
+                <ScalarProperty Name="dealerComments" ColumnName="dealerComments" />
+                <ScalarProperty Name="isDealerInterested" ColumnName="isDealerInterested" />
+                <ScalarProperty Name="winningDate" ColumnName="winningDate" />
+                <ScalarProperty Name="bidCreatedDate" ColumnName="bidCreatedDate" />
+                <ScalarProperty Name="isWinningBid" ColumnName="isWinningBid" />
+                <ScalarProperty Name="bidAmount" ColumnName="bidAmount" />
+                <ScalarProperty Name="requestId" ColumnName="requestId" />
+                <ScalarProperty Name="dealerId" ColumnName="dealerId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarMakes">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.CarMake">
+              <MappingFragment StoreEntitySet="CarMakes">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="makeName" ColumnName="makeName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarModels">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.CarModel">
+              <MappingFragment StoreEntitySet="CarModels">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="carModelName" ColumnName="carModelName" />
+                <ScalarProperty Name="carMakeId" ColumnName="carMakeId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarRequests">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.CarRequest">
+              <MappingFragment StoreEntitySet="CarRequests">
+                <ScalarProperty Name="isRequestClosed" ColumnName="isRequestClosed" />
+                <ScalarProperty Name="AdminComments" ColumnName="AdminComments" />
+                <ScalarProperty Name="commisionReceived" ColumnName="commisionReceived" />
+                <ScalarProperty Name="commissionCalculated" ColumnName="commissionCalculated" />
+                <ScalarProperty Name="actualSellingPrice" ColumnName="actualSellingPrice" />
+                <ScalarProperty Name="clientAcceptedWinningBid" ColumnName="clientAcceptedWinningBid" />
+                <ScalarProperty Name="winningBidId" ColumnName="winningBidId" />
+                <ScalarProperty Name="isRequestActive" ColumnName="isRequestActive" />
+                <ScalarProperty Name="clientComments" ColumnName="clientComments" />
+                <ScalarProperty Name="tradeinKMs" ColumnName="tradeinKMs" />
+                <ScalarProperty Name="tradeinValue" ColumnName="tradeinValue" />
+                <ScalarProperty Name="tradeinDescription" ColumnName="tradeinDescription" />
+                <ScalarProperty Name="tradeinFuelId" ColumnName="tradeinFuelId" />
+                <ScalarProperty Name="tradeinYearId" ColumnName="tradeinYearId" />
+                <ScalarProperty Name="tradeinVariantId" ColumnName="tradeinVariantId" />
+                <ScalarProperty Name="tradeinModelId" ColumnName="tradeinModelId" />
+                <ScalarProperty Name="tradeinMakeId" ColumnName="tradeinMakeId" />
+                <ScalarProperty Name="tradeinVehicleAvailable" ColumnName="tradeinVehicleAvailable" />
+                <ScalarProperty Name="depositAmount" ColumnName="depositAmount" />
+                <ScalarProperty Name="financeHouseId" ColumnName="financeHouseId" />
+                <ScalarProperty Name="financeApproved" ColumnName="financeApproved" />
+                <ScalarProperty Name="paymentMethodId" ColumnName="paymentMethodId" />
+                <ScalarProperty Name="canOfferDifferentColor" ColumnName="canOfferDifferentColor" />
+                <ScalarProperty Name="colorChoice3Id" ColumnName="colorChoice3Id" />
+                <ScalarProperty Name="colorChoice2Id" ColumnName="colorChoice2Id" />
+                <ScalarProperty Name="colorChoice1Id" ColumnName="colorChoice1Id" />
+                <ScalarProperty Name="deliveryRequestDate" ColumnName="deliveryRequestDate" />
+                <ScalarProperty Name="requestedDate" ColumnName="requestedDate" />
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="carVariantId" ColumnName="carVariantId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarVariantFuels">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.CarVariantFuel">
+              <MappingFragment StoreEntitySet="CarVariantFuels">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarVariants">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.CarVariant">
+              <MappingFragment StoreEntitySet="CarVariants">
+                <ScalarProperty Name="Width_excl_mirrors_incl_mirrors" ColumnName="Width_excl_mirrors_incl_mirrors" />
+                <ScalarProperty Name="Wheelbase" ColumnName="Wheelbase" />
+                <ScalarProperty Name="Rear_tyres" ColumnName="Rear_tyres" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Ground_clearance_minimummaximum" ColumnName="Ground_clearance_minimummaximum" />
+                <ScalarProperty Name="Gross_weight_GVM" ColumnName="Gross_weight_GVM" />
+                <ScalarProperty Name="Front_tyres" ColumnName="Front_tyres" />
+                <ScalarProperty Name="Departure_angle" ColumnName="Departure_angle" />
+                <ScalarProperty Name="Breakover_ramp_angle" ColumnName="Breakover_ramp_angle" />
+                <ScalarProperty Name="Axle_configuration" ColumnName="Axle_configuration" />
+                <ScalarProperty Name="Approach_angle" ColumnName="Approach_angle" />
+                <ScalarProperty Name="Alloy_wheelsrims" ColumnName="Alloy_wheelsrims" />
+                <ScalarProperty Name="Xenon_headlights" ColumnName="Xenon_headlights" />
+                <ScalarProperty Name="Tyre_pressure_sensormonitor__deflation_detection_system" ColumnName="Tyre_pressure_sensormonitor__deflation_detection_system" />
+                <ScalarProperty Name="Traction_control" ColumnName="Traction_control" />
+                <ScalarProperty Name="Stability_control" ColumnName="Stability_control" />
+                <ScalarProperty Name="Remote_central_locking" ColumnName="Remote_central_locking" />
+                <ScalarProperty Name="Rain_sensor_auto_wipers" ColumnName="Rain_sensor_auto_wipers" />
+                <ScalarProperty Name="Light_sensor__automatic_light_control_auto_on_off_lights" ColumnName="Light_sensor__automatic_light_control_auto_on_off_lights" />
+                <ScalarProperty Name="Lane_change__blind_spot_warningassistmonitor" ColumnName="Lane_change__blind_spot_warningassistmonitor" />
+                <ScalarProperty Name="Hill_start_assist__hill_holder" ColumnName="Hill_start_assist__hill_holder" />
+                <ScalarProperty Name="High_level_3rd_brake_light" ColumnName="High_level_3rd_brake_light" />
+                <ScalarProperty Name="Front_passenger_airbag" ColumnName="Front_passenger_airbag" />
+                <ScalarProperty Name="Front_fog_lampslights" ColumnName="Front_fog_lampslights" />
+                <ScalarProperty Name="Emergency_brake_hazard_lights" ColumnName="Emergency_brake_hazard_lights" />
+                <ScalarProperty Name="Electronic_brake_distribution_EBD" ColumnName="Electronic_brake_distribution_EBD" />
+                <ScalarProperty Name="Driver_airbag" ColumnName="Driver_airbag" />
+                <ScalarProperty Name="Diff_lock___rear" ColumnName="Diff_lock___rear" />
+                <ScalarProperty Name="Diff_lock___front" ColumnName="Diff_lock___front" />
+                <ScalarProperty Name="Diff_lock___centre" ColumnName="Diff_lock___centre" />
+                <ScalarProperty Name="Daytime_drivingrunning_lights" ColumnName="Daytime_drivingrunning_lights" />
+                <ScalarProperty Name="Curtain_airbags" ColumnName="Curtain_airbags" />
+                <ScalarProperty Name="Brake_assist_BASEBA" ColumnName="Brake_assist_BASEBA" />
+                <ScalarProperty Name="Autodim_interior_mirror" ColumnName="Autodim_interior_mirror" />
+                <ScalarProperty Name="Autodim_exterior_mirrors" ColumnName="Autodim_exterior_mirrors" />
+                <ScalarProperty Name="Anti_lock_braking_system_ABS" ColumnName="Anti_lock_braking_system_ABS" />
+                <ScalarProperty Name="Airbag_quantity" ColumnName="Airbag_quantity" />
+                <ScalarProperty Name="Ventilated_seats___front" ColumnName="Ventilated_seats___front" />
+                <ScalarProperty Name="Split_rear_seat" ColumnName="Split_rear_seat" />
+                <ScalarProperty Name="Seats" ColumnName="Seats" />
+                <ScalarProperty Name="On_board_computer__multi_information_display" ColumnName="On_board_computer__multi_information_display" />
+                <ScalarProperty Name="Leather_upholstery" ColumnName="Leather_upholstery" />
+                <ScalarProperty Name="ISOFIX_child_seat_mountings" ColumnName="ISOFIX_child_seat_mountings" />
+                <ScalarProperty Name="Heated_seats___front" ColumnName="Heated_seats___front" />
+                <ScalarProperty Name="Folding_rear_seat" ColumnName="Folding_rear_seat" />
+                <ScalarProperty Name="Electric_windows" ColumnName="Electric_windows" />
+                <ScalarProperty Name="Electric_seat_adjustment_front_passenger" ColumnName="Electric_seat_adjustment_front_passenger" />
+                <ScalarProperty Name="Electric_seat_adjustment_driver" ColumnName="Electric_seat_adjustment_driver" />
+                <ScalarProperty Name="CD_player" ColumnName="CD_player" />
+                <ScalarProperty Name="Torque_peak_revs" ColumnName="Torque_peak_revs" />
+                <ScalarProperty Name="Torque_maximum" ColumnName="Torque_maximum" />
+                <ScalarProperty Name="Power_peak_revs" ColumnName="Power_peak_revs" />
+                <ScalarProperty Name="Power_maximum_detail" ColumnName="Power_maximum_detail" />
+                <ScalarProperty Name="Maximum_top_speed" ColumnName="Maximum_top_speed" />
+                <ScalarProperty Name="Fuel_consumption_average" ColumnName="Fuel_consumption_average" />
+                <ScalarProperty Name="Fuel_range_average" ColumnName="Fuel_range_average" />
+                <ScalarProperty Name="Engine_position_location" ColumnName="Engine_position_location" />
+                <ScalarProperty Name="Co2_emissions" ColumnName="Co2_emissions" />
+                <ScalarProperty Name="Acceleration_0100km_h" ColumnName="Acceleration_0100km_h" />
+                <ScalarProperty Name="Warranty_time_years" ColumnName="Warranty_time_years" />
+                <ScalarProperty Name="Warranty_distance" ColumnName="Warranty_distance" />
+                <ScalarProperty Name="Voice_control" ColumnName="Voice_control" />
+                <ScalarProperty Name="USB_port" ColumnName="USB_port" />
+                <ScalarProperty Name="Service_interval_distance" ColumnName="Service_interval_distance" />
+                <ScalarProperty Name="Power_steering" ColumnName="Power_steering" />
+                <ScalarProperty Name="Park_distance_control_PDC___rear" ColumnName="Park_distance_control_PDC___rear" />
+                <ScalarProperty Name="Park_distance_control_PDC___front" ColumnName="Park_distance_control_PDC___front" />
+                <ScalarProperty Name="Navigation" ColumnName="Navigation" />
+                <ScalarProperty Name="Multi_function_steering_wheel_controls" ColumnName="Multi_function_steering_wheel_controls" />
+                <ScalarProperty Name="Maintenance_plan_time_years" ColumnName="Maintenance_plan_time_years" />
+                <ScalarProperty Name="Maintenance_plan_distance" ColumnName="Maintenance_plan_distance" />
+                <ScalarProperty Name="Maintenance_plan" ColumnName="Maintenance_plan" />
+                <ScalarProperty Name="Engine_auto_StopStart__idle_stop__eco_stop" ColumnName="Engine_auto_StopStart__idle_stop__eco_stop" />
+                <ScalarProperty Name="Electric_adjust_mirrors" ColumnName="Electric_adjust_mirrors" />
+                <ScalarProperty Name="Electric_steering_column_adjustment" ColumnName="Electric_steering_column_adjustment" />
+                <ScalarProperty Name="Cruise_control" ColumnName="Cruise_control" />
+                <ScalarProperty Name="Climate_control__automatic_air_conditioning" ColumnName="Climate_control__automatic_air_conditioning" />
+                <ScalarProperty Name="Camera_for_park_distance_control" ColumnName="Camera_for_park_distance_control" />
+                <ScalarProperty Name="Bluetooth_connectivity" ColumnName="Bluetooth_connectivity" />
+                <ScalarProperty Name="Aux_in_auxiliary_input_jack" ColumnName="Aux_in_auxiliary_input_jack" />
+                <ScalarProperty Name="Air_conditioning" ColumnName="Air_conditioning" />
+                <ScalarProperty Name="Turbocharger" ColumnName="Turbocharger" />
+                <ScalarProperty Name="Transmission_name" ColumnName="Transmission_name" />
+                <ScalarProperty Name="Gearbox" ColumnName="Gearbox" />
+                <ScalarProperty Name="Sunroof" ColumnName="Sunroof" />
+                <ScalarProperty Name="No_of_doors" ColumnName="No_of_doors" />
+                <ScalarProperty Name="Low_range" ColumnName="Low_range" />
+                <ScalarProperty Name="Gearshift_paddles" ColumnName="Gearshift_paddles" />
+                <ScalarProperty Name="Gears" ColumnName="Gears" />
+                <ScalarProperty Name="Fuel_type" ColumnName="Fuel_type" />
+                <ScalarProperty Name="Fuel_tank_capacity_incl_reserve" ColumnName="Fuel_tank_capacity_incl_reserve" />
+                <ScalarProperty Name="Engine_size_litre" ColumnName="Engine_size_litre" />
+                <ScalarProperty Name="Engine_detail" ColumnName="Engine_detail" />
+                <ScalarProperty Name="Engine_capacity" ColumnName="Engine_capacity" />
+                <ScalarProperty Name="Drive" ColumnName="Drive" />
+                <ScalarProperty Name="Cylinder_layout_quantity" ColumnName="Cylinder_layout_quantity" />
+                <ScalarProperty Name="BodyType" ColumnName="BodyType" />
+                <ScalarProperty Name="AveragePrice" ColumnName="AveragePrice" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="carVariantName" ColumnName="carVariantName" />
+                <ScalarProperty Name="carModelId" ColumnName="carModelId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarVariantYears">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.CarVariantYear">
+              <MappingFragment StoreEntitySet="CarVariantYears">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientLogins">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.ClientLogin">
+              <MappingFragment StoreEntitySet="ClientLogins">
+                <ScalarProperty Name="logouttime" ColumnName="logouttime" />
+                <ScalarProperty Name="logintime" ColumnName="logintime" />
+                <ScalarProperty Name="clientId" ColumnName="clientId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="closedsmsnotify" ColumnName="closedsmsnotify" />
+                <ScalarProperty Name="closedemailnotify" ColumnName="closedemailnotify" />
+                <ScalarProperty Name="closenextdaysmsnotify" ColumnName="closenextdaysmsnotify" />
+                <ScalarProperty Name="closenextdayemailnotify" ColumnName="closenextdayemailnotify" />
+                <ScalarProperty Name="bidsmsnotify" ColumnName="bidsmsnotify" />
+                <ScalarProperty Name="bidemailnotify" ColumnName="bidemailnotify" />
+                <ScalarProperty Name="lastLoginDate" ColumnName="lastLoginDate" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="townId" ColumnName="townId" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="isEmailConfirmed" ColumnName="isEmailConfirmed" />
+                <ScalarProperty Name="rememberMe" ColumnName="rememberMe" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+                <ScalarProperty Name="bestTimeToContactId" ColumnName="bestTimeToContactId" />
+                <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="titleId" ColumnName="titleId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colors">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.Color">
+              <MappingFragment StoreEntitySet="Colors">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="countryCode" ColumnName="countryCode" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DealerLogins">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.DealerLogin">
+              <MappingFragment StoreEntitySet="DealerLogins">
+                <ScalarProperty Name="logouttime" ColumnName="logouttime" />
+                <ScalarProperty Name="logintime" ColumnName="logintime" />
+                <ScalarProperty Name="dealerId" ColumnName="dealerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DealerMakes">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.DealerMake">
+              <MappingFragment StoreEntitySet="DealerMakes">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="carMakeId" ColumnName="carMakeId" />
+                <ScalarProperty Name="dealerId" ColumnName="dealerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DealerProvinces">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.DealerProvince">
+              <MappingFragment StoreEntitySet="DealerProvinces">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="dealerId" ColumnName="dealerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dealers">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.Dealer">
+              <MappingFragment StoreEntitySet="Dealers">
+                <ScalarProperty Name="closedsmsnotify" ColumnName="closedsmsnotify" />
+                <ScalarProperty Name="closedemailnotify" ColumnName="closedemailnotify" />
+                <ScalarProperty Name="closenextdaysmsnotify" ColumnName="closenextdaysmsnotify" />
+                <ScalarProperty Name="closenextdayemailnotify" ColumnName="closenextdayemailnotify" />
+                <ScalarProperty Name="lowerbidsmsnotify" ColumnName="lowerbidsmsnotify" />
+                <ScalarProperty Name="lowerbidemailnotify" ColumnName="lowerbidemailnotify" />
+                <ScalarProperty Name="newlistsmsnotify" ColumnName="newlistsmsnotify" />
+                <ScalarProperty Name="newlistemailnotify" ColumnName="newlistemailnotify" />
+                <ScalarProperty Name="paymentGatewayId" ColumnName="paymentGatewayId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="VATNumber" ColumnName="VATNumber" />
+                <ScalarProperty Name="registrationNumber" ColumnName="registrationNumber" />
+                <ScalarProperty Name="businessName" ColumnName="businessName" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="lastLoginDate" ColumnName="lastLoginDate" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="townId" ColumnName="townId" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="isEmailConfirmed" ColumnName="isEmailConfirmed" />
+                <ScalarProperty Name="rememberMe" ColumnName="rememberMe" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="titleId" ColumnName="titleId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faq_Types">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.Faq_Types">
+              <MappingFragment StoreEntitySet="Faq_Types">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faqs">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.Faq">
+              <MappingFragment StoreEntitySet="Faqs">
+                <ScalarProperty Name="answer" ColumnName="answer" />
+                <ScalarProperty Name="question" ColumnName="question" />
+                <ScalarProperty Name="faqtypeId" ColumnName="faqtypeId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinanceHouses">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.FinanceHous">
+              <MappingFragment StoreEntitySet="FinanceHouses">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentGateways">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.PaymentGateway">
+              <MappingFragment StoreEntitySet="PaymentGateways">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMethods">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.PaymentMethod">
+              <MappingFragment StoreEntitySet="PaymentMethods">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.Province">
+              <MappingFragment StoreEntitySet="Provinces">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="countryId" ColumnName="countryId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Titles">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.Title">
+              <MappingFragment StoreEntitySet="Titles">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Towns">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.Town">
+              <MappingFragment StoreEntitySet="Towns">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLogins">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.UserLogin">
+              <MappingFragment StoreEntitySet="UserLogins">
+                <ScalarProperty Name="logouttime" ColumnName="logouttime" />
+                <ScalarProperty Name="logintime" ColumnName="logintime" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="lastLoginDate" ColumnName="lastLoginDate" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="townId" ColumnName="townId" />
+                <ScalarProperty Name="provinceId" ColumnName="provinceId" />
+                <ScalarProperty Name="rememberMe" ColumnName="rememberMe" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+                <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="userTypeId" ColumnName="userTypeId" />
+                <ScalarProperty Name="titleId" ColumnName="titleId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="AutoNegotiatorDBModel.UserType">
+              <MappingFragment StoreEntitySet="UserTypes">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

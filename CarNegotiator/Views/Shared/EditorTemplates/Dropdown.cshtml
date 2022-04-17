@@ -1,0 +1,10 @@
+﻿<div class="form-group row input-group">
+    <div class="col-md-6 col-lg-6">
+        @Html.LabelFor(model => model, htmlAttributes: new { @class = "d-block" })
+        @Html.DropDownList(@Html.NameFor(model => model).ToString(), null, htmlAttributes: new { @class = "form-control", id = @Html.NameFor(model => model).ToString(), name = @Html.NameFor(model => model).ToString() })
+    </div>
+    <div class="col-md-6 col-lg-6">
+        @Html.ValidationMessageFor(model => model, "", new { @class = "text-danger" })
+    </div>
+</div>
+

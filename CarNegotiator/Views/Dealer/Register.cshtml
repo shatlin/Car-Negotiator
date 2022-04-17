@@ -1,0 +1,196 @@
+﻿@model CarNegotiator.Models.Dealer
+
+@{
+    /**/
+
+    ViewBag.Title = "Dealer Register";
+    Layout = "~/Views/Shared/_DealerLayout.cshtml";
+}
+
+@Html.Partial("_HeaderPartial", "Please Fill the details to register yourself")
+
+@Html.Partial("_FormTop")
+
+@using (Html.BeginForm("Register", "Dealer", FormMethod.Post, new { style = " max-width: 1600px", @class = "form-signin was-validated" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Partial("_FormSectionPartial", "Login and Contact Details")
+
+    @Html.EditorFor(model => model.emailAddress)
+    @Html.EditorFor(model => model.password)
+
+    <div class="form-group row input-group">
+        <div class="col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.titleId, htmlAttributes: new { @class = "d-block" })
+            @Html.DropDownList("titleId", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.ValidationMessageFor(model => model.titleId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @Html.EditorFor(model => model.firstName)
+    @Html.EditorFor(model => model.lastName)
+    @Html.EditorFor(model => model.MobileNumber)
+    @Html.EditorFor(model => model.TelephoneNumber)
+
+    @Html.Partial("_FormSectionPartial", "Company Details")
+
+    <div class="form-group row input-group">
+        <div class="col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.provinceId, htmlAttributes: new { @class = "d-block" })
+            @Html.DropDownList("provinceId", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.ValidationMessageFor(model => model.provinceId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.townId, htmlAttributes: new { @class = "d-block" })
+            @Html.DropDownList("townId", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.ValidationMessageFor(model => model.townId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @Html.EditorFor(model => model.Position)
+    @Html.EditorFor(model => model.businessName)
+    @Html.EditorFor(model => model.registrationNumber)
+    @Html.EditorFor(model => model.VATNumber)
+    @Html.EditorFor(model => model.Address)
+
+    <div class="form-group row input-group">
+        <div class="col-md-6 col-lg-6">
+            @Html.LabelFor(model => model.paymentGatewayId, htmlAttributes: new { @class = "d-block" })
+            @Html.DropDownList("paymentGatewayId", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div class="col-md-6 col-lg-6">
+            @Html.ValidationMessageFor(model => model.paymentGatewayId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @Html.Partial("_FormSectionPartial", "Dealership for the following Cars")
+    <div class="form-group row input-group">
+        @Html.EditorFor(x => x.MakesToSelect)
+    </div>
+
+    @Html.Partial("_FormSectionPartial", "Show and notify me about auctions from only in these provinces")
+    <div class="form-group row input-group">
+        @Html.EditorFor(x => x.ProvicesToSelect)
+    </div>
+
+
+    @Html.Partial("_FormSectionPartial", "Notification Settings")
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.newlistemailnotify)
+            @Html.LabelFor(model => model.newlistemailnotify)
+        </div>
+    </div>
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.newlistsmsnotify)
+            @Html.LabelFor(model => model.newlistsmsnotify)
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.lowerbidemailnotify)
+            @Html.LabelFor(model => model.lowerbidemailnotify)
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.lowerbidsmsnotify)
+            @Html.LabelFor(model => model.lowerbidsmsnotify)
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.closenextdaysmsnotify)
+            @Html.LabelFor(model => model.closenextdaysmsnotify)
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.closenextdaysmsnotify)
+            @Html.LabelFor(model => model.closenextdaysmsnotify)
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.closedemailnotify)
+            @Html.LabelFor(model => model.closedemailnotify)
+        </div>
+    </div>
+
+
+    <div class="form-group row input-group">
+        <div class="col-md-12 col-lg-12">
+            @Html.EditorFor(model => model.closedsmsnotify)
+            @Html.LabelFor(model => model.closedsmsnotify)
+        </div>
+    </div>
+
+
+    @Html.Partial("_FormButtonPartial", "Register")
+}
+
+@Html.Partial("_FormBottom")
+
+<script type="text/javascript">
+
+
+    $('#Provinces').change(function () {
+        var selectedProvince = $("#Provinces").val();
+        var townSelect = $('#Towns');
+        townSelect.empty();
+        if ($("#Provinces").val() == "") {
+            townSelect.append($('<option/>', {
+                value: null,
+                text: "--Please select a Province First--"
+            }));
+            $("#Towns").prop("disabled", true);
+            return;
+        }
+        else {
+        $("#Towns").prop("disabled", false);
+        }
+        if (selectedProvince != null && selectedProvince != '') {
+            $.getJSON('@Url.Action("GetTowns")', { id: selectedProvince }, function (towns) {
+                        if (towns != null && !jQuery.isEmptyObject(towns))
+                        {
+                            townSelect.append($('<option/>', {
+                                value: null,
+                                text: "--Please select a Town--"
+                            }));
+
+                            $.each(towns, function (index, town) {
+                                townSelect.append($('<option/>', {
+                                    value: town.Value,
+                                    text: town.Text
+                                }));
+                            });
+                        };
+                    });
+                }
+    });
+
+
+</script>

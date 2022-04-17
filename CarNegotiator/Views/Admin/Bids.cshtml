@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CarNegotiator.Models.BidVM>
+@{
+    /**/
+
+    Layout = null;
+}
+
+<table class="table table-bordered  table-responsive-md table-striped text-center">
+    <tr>
+        <th class="text-center">Dealer Name</th>
+        <th class="text-center">Mobile Number</th>
+        <th class="text-center">Telephone Number</th>
+        <th class="text-center">Email Address</th>
+        <th class="text-center">Business Name</th>
+        <th class="text-center">Province</th>
+        <th class="text-center">Town</th>
+        <th class="text-center">Bid Amount</th>
+        <th class="text-center">Bid Updated Date</th>
+        <th class="text-center">Winning Bid?</th>
+        <th class="text-center">Accept Bid</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td class="pt-3-half" contenteditable="false">@item.DealerName</td>
+        <td class="pt-3-half" contenteditable="false">@item.MobileNumber</td>
+        <td class="pt-3-half" contenteditable="false">@item.TelephoneNumber</td>
+        <td class="pt-3-half" contenteditable="false">@item.emailAddress</td>
+        <td class="pt-3-half" contenteditable="false">@item.businessName</td>
+        <td class="pt-3-half" contenteditable="false">@item.Province</td>
+        <td class="pt-3-half" contenteditable="false">@item.Town</td>
+        <td class="pt-3-half" contenteditable="false">@item.bidAmount</td>
+        <td class="pt-3-half" contenteditable="false">@item.bidUpdatedDate</td>
+        <td class="pt-3-half" contenteditable="false">@item.winningBid</td>
+        <td>
+            <span class="table-remove">
+                @Html.ActionLink("Accept Bid", "AcceptBid", new { id = item.id }, new { @class = "btn btn-warning btn-rounded btn-sm my-0" })
+            </span>
+        </td>
+    </tr>
+        }
+      
+    </table>

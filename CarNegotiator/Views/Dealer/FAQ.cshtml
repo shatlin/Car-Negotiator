@@ -1,0 +1,10 @@
+﻿@model IEnumerable<CarNegotiator.Models.Faq>
+@{
+    ViewBag.Title = "FAQ";
+    Layout = "~/Views/Shared/_DealerLayout.cshtml";
+}
+<div class="container">
+    @Html.Partial("_HeaderPartial", "FAQ")
+    @Html.Partial("_FAQPartial", Model)
+</div>
+@Html.Partial("_EmptySpacePartial")

@@ -1,0 +1,813 @@
+﻿@{
+    ViewBag.Title = "Deaeler Register Demo";
+    Layout = "~/Views/Shared/_DealerLayout.cshtml";
+}
+
+
+<div class="container">
+    <!-- A Heading -->
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-12 text-center text-success">
+            <h5 class="card-title text-center">Please fill in the details to register your dealership</h5>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+            <div class="card my-5">
+                <div class="card-body">
+                    <form class="form-signin was-validated" style=" max-width: 1600px">
+
+
+                        <br />
+                        <h5 class="card-title">Contact Details</h5>
+                        <br />
+
+
+                        <div class="form-group row input-group">
+
+                            <div class="col-md-12 col-lg-12">
+                                <label class="d-block" for="form-2-first-name">Email Address(Required)</label>
+                                <input type="text" class="form-control is-valid" id="form-2-first-name" placeholder="Email Address" required>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row input-group">
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-3-select">Title</label>
+                                <select class="custom-select w-100" id="form-3-select" required>
+                                    <option value="1">Mr</option>
+                                    <option value="2">Mrs</option>
+                                    <option value="3">Miss</option>
+                                    <option value="3">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-2-first-name">First name (Required)</label>
+                                <input type="text" class="form-control is-valid" id="form-2-first-name" placeholder="First name" required>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-2-last-name">Last name  (Optional)</label>
+                                <input type="text" class="form-control" id="form-2-last-name" placeholder="Last name">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row input-group">
+
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-2-last-name">Position in Company</label>
+                                <input type="text" class="form-control" id="form-2-last-name" placeholder="Position">
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-2-first-name">Landline Number (Required)</label>
+                                <input type="text" class="form-control is-valid" id="form-2-first-name" placeholder="Landline Number" required>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-2-first-name">Mobile Number (Required)</label>
+                                <input type="text" class="form-control is-valid" id="form-2-first-name" placeholder="Mobile Number" required>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group row input-group">
+
+
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-3-select">Province (Required)</label>
+                                <select class="custom-select w-100" id="form-3-select" required>
+                                    <option value=""> Please select Province     </option>
+                                    <option value="1">Eastern Cape   </option>
+                                    <option value="2">Free State    </option>
+                                    <option value="3">Gauteng    </option>
+                                    <option value="4">KwaZulu-Natal   </option>
+                                    <option value="5">Limpopo       </option>
+                                    <option value="3">Mpumalanga    </option>
+                                    <option value="4">North West   </option>
+                                    <option value="5">Northern Cape       </option>
+                                    <option value="5">Western Cape       </option>
+
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-3-select">Town (Required)</label>
+                                <select class="custom-select w-100" id="form-3-select" required>
+                                    <option value=""> Please select City/Town     </option>
+                                    <option value="1">Eastern Cape-Alice</option>
+                                    <option value="1">Eastern Cape-Butterworth              </option>
+                                    <option value="1">Eastern Cape-East London              </option>
+                                    <option value="1">Eastern Cape-Graaff-Reinet            </option>
+                                    <option value="1">Eastern Cape-Grahamstown              </option>
+                                    <option value="1">Eastern Cape-King William’s Town      </option>
+                                    <option value="1">Eastern Cape-Mthatha                  </option>
+                                    <option value="1">Eastern Cape-Port Elizabeth           </option>
+                                    <option value="1">Eastern Cape-Queenstown               </option>
+                                    <option value="1">Eastern Cape-Uitenhage                </option>
+                                    <option value="1">Eastern Cape-Zwelitsha                </option>
+                                    <option value="1">Eastern Cape-Free State               </option>
+                                    <option value="1">Free State-Bloemfontein               </option>
+                                    <option value="1">Free State-Jagersfontein              </option>
+                                    <option value="1">Free State-Kroonstad                  </option>
+                                    <option value="1">Free State-Odendaalsrus               </option>
+                                    <option value="1">Free State-Parys                      </option>
+                                    <option value="1">Free State-Phuthaditjhaba             </option>
+                                    <option value="1">Free State-Sasolburg                  </option>
+                                    <option value="1">Free State-Virginia                   </option>
+                                    <option value="1">Free State-Welkom                     </option>
+                                    <option value="1">Free State-Gauteng                    </option>
+                                    <option value="1">Gauteng-Boksburg                      </option>
+                                    <option value="1">Gauteng-Brakpan                       </option>
+                                    <option value="1">Gauteng-Carletonville                 </option>
+                                    <option value="1">Gauteng-Germiston                     </option>
+                                    <option value="1">Gauteng-Johannesburg                  </option>
+                                    <option value="1">Gauteng-Krugersdorp                   </option>
+                                    <option value="1">Gauteng-Pretoria                      </option>
+                                    <option value="1">Gauteng-Randburg                      </option>
+                                    <option value="1">Gauteng-Randfontein                   </option>
+                                    <option value="1">Gauteng-Roodepoort                    </option>
+                                    <option value="1">Gauteng-Soweto                        </option>
+                                    <option value="1">Gauteng-Springs                       </option>
+                                    <option value="1">Gauteng-Vanderbijlpark                </option>
+                                    <option value="1">Gauteng-Vereeniging                   </option>
+                                    <option value="1">KwaZulu-Natal-Durban                  </option>
+                                    <option value="1">KwaZulu-Natal-Empangeni               </option>
+                                    <option value="1">KwaZulu-Natal-Ladysmith               </option>
+                                    <option value="1">KwaZulu-Natal-Newcastle               </option>
+                                    <option value="1">KwaZulu-Natal-Pietermaritzburg        </option>
+                                    <option value="1">KwaZulu-Natal-Pinetown                </option>
+                                    <option value="1">KwaZulu-Natal-Ulundi                  </option>
+                                    <option value="1">KwaZulu-Natal-Umlazi                  </option>
+                                    <option value="1">Limpopo-Giyani                        </option>
+                                    <option value="1">Limpopo-Lebowakgomo                   </option>
+                                    <option value="1">Limpopo-Musina                        </option>
+                                    <option value="1">Limpopo-Phalaborwa                    </option>
+                                    <option value="1">Limpopo-Polokwane                     </option>
+                                    <option value="1">Limpopo-Seshego                       </option>
+                                    <option value="1">Limpopo-Sibasa                        </option>
+                                    <option value="1">Limpopo-Thabazimbi                    </option>
+                                    <option value="1">Mpumalanga-Emalahleni                 </option>
+                                    <option value="1">Mpumalanga-Nelspruit                  </option>
+                                    <option value="1">Mpumalanga-Secunda                    </option>
+                                    <option value="1">North West-Klerksdorp                 </option>
+                                    <option value="1">North West-Mahikeng                   </option>
+                                    <option value="1">North West-Mmabatho                   </option>
+                                    <option value="1">North West-Potchefstroom              </option>
+                                    <option value="1">North West-Rustenburg                 </option>
+                                    <option value="1">Northern Cape-Kimberley               </option>
+                                    <option value="1">Northern Cape-Kuruman                 </option>
+                                    <option value="1">Northern Cape-Port Nolloth            </option>
+                                    <option value="1">Northern Cape-Western Cape            </option>
+                                    <option value="1">Northern Cape-Bellville               </option>
+                                    <option value="1">Cape Town-Constantia                  </option>
+                                    <option value="1">Cape Town-George                      </option>
+                                    <option value="1">Cape Town-Hopefield                   </option>
+                                    <option value="1">Cape Town-Oudtshoorn                  </option>
+                                    <option value="1">Cape Town-Paarl                       </option>
+                                    <option value="1">Cape Town-Simon’s Town                </option>
+                                    <option value="1">Cape Town-Stellenbosch                </option>
+                                    <option value="1">Cape Town-Swellendam                  </option>
+                                    <option value="1">Cape Town-Worcester                   </option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <br />
+
+
+
+
+                        <br />
+                        <h5 class="card-title">Company Details</h5>
+                        <br />
+
+
+                        <div class="form-group row input-group">
+
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-2-first-name">Business Name(Required)</label>
+                                <input type="text" class="form-control is-valid" id="form-2-first-name" placeholder="Business Name" required>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-2-first-name">Co. Registration Number(Required)</label>
+                                <input type="text" class="form-control is-valid" id="form-2-first-name" placeholder="Registration Number" required>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <label class="d-block" for="form-2-first-name">VAT Number</label>
+                                <input type="text" class="form-control is-valid" id="form-2-first-name" placeholder="VAT Number" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row input-group">
+
+                            <div class="col-md-12 col-lg-12">
+                                <label class="d-block" for="form-2-last-name">Address</label>
+                                <input type="text" class="form-control" id="form-2-last-name" placeholder="Address">
+                            </div>
+                        </div>
+
+                        <div class="form-group row input-group">
+                            <div class="col-md-6 col-lg-3">
+                                <label class="d-block" for="form-2-first-name">Company Landline  (Required)</label>
+                                <input type="text" class="form-control is-valid" id="form-2-first-name" placeholder="Landline Number" required>
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+
+
+                                <label class="d-block" for="form-3-select">Province (Required)</label>
+                                <select class="custom-select w-100" id="form-3-select" required>
+                                    <option value=""> Please select Province     </option>
+                                    <option value="1">Eastern Cape   </option>
+                                    <option value="2">Free State    </option>
+                                    <option value="3">Gauteng    </option>
+                                    <option value="4">KwaZulu-Natal   </option>
+                                    <option value="5">Limpopo       </option>
+                                    <option value="3">Mpumalanga    </option>
+                                    <option value="4">North West   </option>
+                                    <option value="5">Northern Cape       </option>
+                                    <option value="5">Western Cape       </option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6 col-lg-3">
+                                <label class="d-block" for="form-3-select">Town (Required)</label>
+                                <select class="custom-select w-100" id="form-3-select" required>
+                                    <option value=""> Please select City/Town     </option>
+                                    <option value="1">Eastern Cape-Alice</option>
+                                    <option value="1">Eastern Cape-Butterworth              </option>
+                                    <option value="1">Eastern Cape-East London              </option>
+                                    <option value="1">Eastern Cape-Graaff-Reinet            </option>
+                                    <option value="1">Eastern Cape-Grahamstown              </option>
+                                    <option value="1">Eastern Cape-King William’s Town      </option>
+                                    <option value="1">Eastern Cape-Mthatha                  </option>
+                                    <option value="1">Eastern Cape-Port Elizabeth           </option>
+                                    <option value="1">Eastern Cape-Queenstown               </option>
+                                    <option value="1">Eastern Cape-Uitenhage                </option>
+                                    <option value="1">Eastern Cape-Zwelitsha                </option>
+                                    <option value="1">Eastern Cape-Free State               </option>
+                                    <option value="1">Free State-Bloemfontein               </option>
+                                    <option value="1">Free State-Jagersfontein              </option>
+                                    <option value="1">Free State-Kroonstad                  </option>
+                                    <option value="1">Free State-Odendaalsrus               </option>
+                                    <option value="1">Free State-Parys                      </option>
+                                    <option value="1">Free State-Phuthaditjhaba             </option>
+                                    <option value="1">Free State-Sasolburg                  </option>
+                                    <option value="1">Free State-Virginia                   </option>
+                                    <option value="1">Free State-Welkom                     </option>
+                                    <option value="1">Free State-Gauteng                    </option>
+                                    <option value="1">Gauteng-Boksburg                      </option>
+                                    <option value="1">Gauteng-Brakpan                       </option>
+                                    <option value="1">Gauteng-Carletonville                 </option>
+                                    <option value="1">Gauteng-Germiston                     </option>
+                                    <option value="1">Gauteng-Johannesburg                  </option>
+                                    <option value="1">Gauteng-Krugersdorp                   </option>
+                                    <option value="1">Gauteng-Pretoria                      </option>
+                                    <option value="1">Gauteng-Randburg                      </option>
+                                    <option value="1">Gauteng-Randfontein                   </option>
+                                    <option value="1">Gauteng-Roodepoort                    </option>
+                                    <option value="1">Gauteng-Soweto                        </option>
+                                    <option value="1">Gauteng-Springs                       </option>
+                                    <option value="1">Gauteng-Vanderbijlpark                </option>
+                                    <option value="1">Gauteng-Vereeniging                   </option>
+                                    <option value="1">KwaZulu-Natal-Durban                  </option>
+                                    <option value="1">KwaZulu-Natal-Empangeni               </option>
+                                    <option value="1">KwaZulu-Natal-Ladysmith               </option>
+                                    <option value="1">KwaZulu-Natal-Newcastle               </option>
+                                    <option value="1">KwaZulu-Natal-Pietermaritzburg        </option>
+                                    <option value="1">KwaZulu-Natal-Pinetown                </option>
+                                    <option value="1">KwaZulu-Natal-Ulundi                  </option>
+                                    <option value="1">KwaZulu-Natal-Umlazi                  </option>
+                                    <option value="1">Limpopo-Giyani                        </option>
+                                    <option value="1">Limpopo-Lebowakgomo                   </option>
+                                    <option value="1">Limpopo-Musina                        </option>
+                                    <option value="1">Limpopo-Phalaborwa                    </option>
+                                    <option value="1">Limpopo-Polokwane                     </option>
+                                    <option value="1">Limpopo-Seshego                       </option>
+                                    <option value="1">Limpopo-Sibasa                        </option>
+                                    <option value="1">Limpopo-Thabazimbi                    </option>
+                                    <option value="1">Mpumalanga-Emalahleni                 </option>
+                                    <option value="1">Mpumalanga-Nelspruit                  </option>
+                                    <option value="1">Mpumalanga-Secunda                    </option>
+                                    <option value="1">North West-Klerksdorp                 </option>
+                                    <option value="1">North West-Mahikeng                   </option>
+                                    <option value="1">North West-Mmabatho                   </option>
+                                    <option value="1">North West-Potchefstroom              </option>
+                                    <option value="1">North West-Rustenburg                 </option>
+                                    <option value="1">Northern Cape-Kimberley               </option>
+                                    <option value="1">Northern Cape-Kuruman                 </option>
+                                    <option value="1">Northern Cape-Port Nolloth            </option>
+                                    <option value="1">Northern Cape-Western Cape            </option>
+                                    <option value="1">Northern Cape-Bellville               </option>
+                                    <option value="1">Cape Town-Constantia                  </option>
+                                    <option value="1">Cape Town-George                      </option>
+                                    <option value="1">Cape Town-Hopefield                   </option>
+                                    <option value="1">Cape Town-Oudtshoorn                  </option>
+                                    <option value="1">Cape Town-Paarl                       </option>
+                                    <option value="1">Cape Town-Simon’s Town                </option>
+                                    <option value="1">Cape Town-Stellenbosch                </option>
+                                    <option value="1">Cape Town-Swellendam                  </option>
+                                    <option value="1">Cape Town-Worcester                   </option>
+
+                                </select>
+                            </div>
+
+
+
+                            <div class="col-md-4 col-lg-3">
+                                <label class="d-block" for="form-2-first-name">Which Payment Gateway you use</label>
+                                <div class="custom-controls-stacked d-block">
+                                    <div class="custom-control custom-radio mb-1">
+                                        <input type="radio" id="radioStacked1" name="radio-stacked" class="custom-control-input" checked>
+                                        <label class="custom-control-label" for="radioStacked1">Seriti</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="customRadio5" name="radio-stacked" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio5">Signio</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="customRadio5" name="radio-stacked" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio5">Dealernet</label>
+                                    </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="customRadio5" name="radio-stacked" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio5">Other</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <br />
+                        <h5 class="card-title">Dealership</h5>
+                        <br />
+                        <div class="form-group row input-group">
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Abarth
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Alfa Romeo
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Audi
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Baic
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Bmw
+                                </label>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group row input-group">
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Chana - Changan
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Datsun
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Fiat
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Ford
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    GWM
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Haval
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row input-group">
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Honda
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Hyundai
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Isuzu
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Jaguar
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Jeep
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">mefree</label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row input-group">
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Kia
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Land Rover
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    MINI
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Mahindra
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Mazda
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Mercedes-Benz
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row input-group">
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Mitsubishi
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Nissan
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Opel
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Peugeot
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Renault
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Ssangyong
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row input-group">
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Subaru
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Suzuki
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Tata
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Toyota
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Volkswagen
+                                </label>
+                            </div>
+
+
+                        </div>
+
+
+                        <br />
+                        <h5 class="card-title"> Show and notify me about auctions in these provinces</h5>
+                        <br />
+                        <div class="form-group row input-group">
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    All
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Eastern Cape
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Free State
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Gauteng
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    KwaZulu-Natal
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">Limpopo</label>
+                            </div>
+
+                        </div>
+                        <div class="form-group row input-group">
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Mpumalanga
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    North West
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck2">
+                                <label for="customCheck2">
+                                    Northern Cape
+                                </label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <input type="checkbox" id="customCheck3">
+                                <label for="customCheck3">
+                                    Western Cape
+                                </label>
+                            </div>
+
+                        </div>
+
+
+                        <br />
+                        <h5 class="card-title"> Notification Settings</h5>
+                        <br />
+                        <div class="form-group row input-group">
+
+                            <div class="col-md-6 col-lg-6">
+                                <label class="d-block" for="form-2-first-name">Receive an SMS or email when a new vehicle from the brand you represent has been listed.</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck2">
+                                        <label for="customCheck2">
+                                            Email
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck3">
+                                        <label for="customCheck3">
+                                            SMS
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <label class="d-block" for="form-2-first-name">Receive an SMS or email when a new vehicle from the brand you represent has been listed.</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck2">
+                                        <label for="customCheck2">
+                                            Email
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck3">
+                                        <label for="customCheck3">
+                                            SMS
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="form-group row input-group">
+
+                            <div class="col-md-6 col-lg-6">
+                                <label class="d-block" for="form-2-first-name">Receive an SMS or email when a new vehicle from the brand you represent has been listed.</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck2">
+                                        <label for="customCheck2">
+                                            Email
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck3">
+                                        <label for="customCheck3">
+                                            SMS
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <label class="d-block" for="form-2-first-name">Receive an SMS or email when a new bid lower than yours has been made</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck2">
+                                        <label for="customCheck2">
+                                            Email
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck3">
+                                        <label for="customCheck3">
+                                            SMS
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="form-group row input-group">
+
+                            <div class="col-md-6 col-lg-6">
+                                <label class="d-block" for="form-2-first-name">Receive an SMS or email warning when an auction you have been bidding on is about to close the next day</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck2">
+                                        <label for="customCheck2">
+                                            Email
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck3">
+                                        <label for="customCheck3">
+                                            SMS
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <label class="d-block" for="form-2-first-name">Receive an SMS or email when the auction you have been bidding on is closed.</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck2">
+                                        <label for="customCheck2">
+                                            Email
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <input type="checkbox" id="customCheck3">
+                                        <label for="customCheck3">
+                                            SMS
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+                        <br />
+
+                        <div class="form-group">
+
+                            <div class="row input-group">
+                                <div class="col-md-6 col-lg-4">
+
+                                </div>
+                                <div class="col-md-6 col-lg-4">
+                                    <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit">Register as a Dealer</button>
+                                </div>
+
+                                <div class="col-md-6 col-lg-4">
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

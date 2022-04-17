@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86d3f8baa10543759ef5eebb2281e4d8" Name="Diagram1">
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.BestTimeToContact" Width="1.5" PointX="1.5" PointY="41.75" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.Bid" Width="1.5" PointX="5.25" PointY="4.25" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.CarMake" Width="1.5" PointX="0.75" PointY="44.375" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.CarModel" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.CarRequest" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.CarVariantFuel" Width="1.5" PointX="0.75" PointY="69.25" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.CarVariant" Width="1.5" PointX="0.75" PointY="47.125" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.CarVariantYear" Width="1.5" PointX="0.75" PointY="29.75" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.ClientLogin" Width="1.5" PointX="3" PointY="36.625" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.Client" Width="1.5" PointX="0.75" PointY="34.5" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.Color" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.Country" Width="1.5" PointX="1.5" PointY="25.75" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.DealerLogin" Width="1.5" PointX="5.25" PointY="15.125" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.DealerMake" Width="1.5" PointX="5.25" PointY="28.125" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.DealerProvince" Width="1.5" PointX="8.25" PointY="18" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.Dealer" Width="1.5" PointX="3" PointY="12" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.Faq_Types" Width="1.5" PointX="5.75" PointY="1.125" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.Faq" Width="1.5" PointX="8" PointY="0.875" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.FinanceHous" Width="1.5" PointX="0.75" PointY="8.5" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.PaymentGateway" Width="1.5" PointX="0.75" PointY="18.375" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.PaymentMethod" Width="1.5" PointX="0.75" PointY="32.125" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.Province" Width="1.5" PointX="1.5" PointY="21.375" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.Title" Width="1.5" PointX="0.75" PointY="15.875" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.Town" Width="1.5" PointX="0.75" PointY="12.375" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.UserLogin" Width="1.5" PointX="8" PointY="21.25" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.User" Width="1.5" PointX="5.75" PointY="18" />
+        <EntityTypeShape EntityType="AutoNegotiatorDBModel.UserType" Width="1.5" PointX="3.5" PointY="31.5" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Clients_BestTimeToContact" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Bids_CarRequest" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Bids_Dealer" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequests_WinningBid" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarMake" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_DealerMakes_CarMake" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarModel" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarVariant_CarModel" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequest_Client" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequest_TradeInCarVariant" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequests_CarVariantFuels_TradeInFuelId" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequests_CarVariants" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequests_CarVariantYears_TradeinYearId" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color1" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color2" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequests_Colors_Color3" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequests_FinanceHouse" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_CarRequests_PaymentMethod" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_ClientLogins_Client" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Client_Town" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Clients_Provinces" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Clients_Titles" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Province_Country" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_DealerLogins_Dealer" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_DealerMakes_Dealer" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_DealerProvince_Dealer" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_DealerProvince_Province" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Dealer_Town" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Dealers_PaymentGateway" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Dealers_Provinces" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Dealers_Titles" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Faqs_Faq_Types" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Town_Province" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Users_Provinces" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Users_Towns" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_UserLogins_User" />
+        <AssociationConnector Association="AutoNegotiatorDBModel.FK_Users_UserTypes" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

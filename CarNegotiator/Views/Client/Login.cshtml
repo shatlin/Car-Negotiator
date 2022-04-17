@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Sign In";
+}
+@model CarNegotiator.Models.Client
+@Html.Partial("_HeaderPartial", "Please sign in to your account")
+
+@Html.Partial("_FormTop")
+
+@using (Html.BeginForm("Login", "Client", FormMethod.Post, new { style = " max-width: 1600px", @class = "form-signin was-validated" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(model => model.emailAddress)
+    @Html.EditorFor(model => model.password)
+    @Html.Partial("_FormEmptyRow")
+    @Html.Partial("_FormButtonPartial", "Sign In")
+}
+@Html.Partial("_FormBottom")

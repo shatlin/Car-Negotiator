@@ -1,0 +1,6 @@
+﻿@model IEnumerable<CarNegotiator.Models.Faq>
+<div class="container">
+    @Html.Partial("_HeaderPartial", "FAQ")
+    @Html.Partial("_FAQPartial", Model)
+</div>
+@Html.Partial("_EmptySpacePartial")

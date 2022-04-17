@@ -1,0 +1,144 @@
+﻿
+@model IEnumerable<CarNegotiator.Models.CarRequestVM>
+@{
+    ViewBag.Title = "Manage Car Requests";
+}
+
+@Html.Partial("_HeaderPartial", "Manage Request and Bids")
+
+
+<script type="text/javascript">
+        $(function () {
+            $('.bids').click(function () {
+
+                var id = $(this).data('assigned-id');
+                var route = '@Url.Action("Bids", "Admin")?id=' + id;
+                $('#partial').load(route);
+            });
+
+    });
+
+            $(function () {
+            $('.bids2').click(function () {
+
+                var id = $(this).data('assigned-id');
+                var route = '@Url.Action("CarDetails", "Car")?id=' + id;
+                $('#partial2').load(route);
+            });
+
+    });
+
+
+</script>
+
+<div class="container-fluid">
+
+
+    <div id="table" class="table-editable">
+        <table class="table table-bordered  table-responsive-md table-striped text-center" id="RequestsGrid">
+            <tr>
+                <th class="text-center">Request No</th>
+                <th class="text-center">Client Name</th>
+                <th class="text-center">Car Make</th>
+                <th class="text-center">Requested Date</th>
+                <th class="text-center">Bid Closeing Date</th>
+                <th class="text-center">Delivery Request Date</th>
+                <th class="text-center">Publish</th>
+                <th class="text-center">Close </th>
+                <th class="text-center">Comments</th>
+                <th class="text-center">View Bids</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="pt-3-half" contenteditable="false">@item.id</td>
+                    <td class="pt-3-half" contenteditable="false">@item.ClientName</td>
+
+
+                    <td class="pt-3-half" contenteditable="false">
+                        <span class="table-remove">
+                            <a href="#" class="bids2" style="text-decoration: underline;color:blue" data-assigned-id=@item.carVariantId data-toggle="modal" data-target="#exampleModalLong2"> @item.car</a>
+
+                        </span>
+                    </td>
+                    <td class="pt-3-half" contenteditable="false">@item.requestedDate</td>
+                    <td class="pt-3-half" contenteditable="false">@item.BidClosingDate</td>
+                    <td class="pt-3-half" contenteditable="false">@item.deliveryRequestDate.ToShortDateString()</td>
+                    <td class="pt-3-half" contenteditable="false">
+                        <span class="table-remove">
+                            @if (!@item.isRequestActive)
+                            {
+                                @Html.ActionLink("Publish", "Publish", new { id = item.id }, new { @class = "btn btn-success btn-rounded btn-sm my-0" })
+                            }
+                            else
+                            {
+                                <h5><span class="badge mr-3 badge-pill badge-light">Published</span></h5>
+                            }
+                        </span>
+                    </td>
+                    <td class="pt-3-half" contenteditable="false">
+                        <span class="table-remove">
+                            @Html.ActionLink("Close", "Close", new { id = item.id }, new { @class = "btn btn-warning btn-rounded btn-sm my-0" })
+                        </span>
+                    </td>
+                    <td class="pt-3-half" contenteditable="false">@Html.TextAreaFor(m => item.AdminComments)</td>
+                    <td class="pt-3-half" contenteditable="false">
+                        <span class="table-remove">
+                            <input class="bids btn btn-danger btn-rounded btn-sm my-0" type="button" value="bids"
+                                   data-assigned-id=@item.id data-toggle="modal" data-target="#exampleModalLong" />
+                        </span>
+                    </td>
+                </tr>
+            }
+        </table>
+
+
+    </div>
+</div>
+
+
+<!-- Modal: modalCart -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-v-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Bids for the request</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <div id="partial"></div>
+
+            </div>
+            <!--Footer-->
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal: modalCart -->
+<div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Car Details</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+                <div id="partial2"></div>
+
+            </div>
+            <!--Footer-->
+
+        </div>
+    </div>
+</div>
